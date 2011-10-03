@@ -1,0 +1,11 @@
+<apns version="6">
+    <apn carrier="orange"
+        mcc="208"
+        mnc="01"
+        apn="orange"
+        user="orange"
+        server=""
+        password="orange"
+        type="default"
+    />
+ </apns>
