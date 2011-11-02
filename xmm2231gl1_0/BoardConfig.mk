@@ -33,3 +33,6 @@ TARGET_BOOTLOADER_BOARD_NAME := unknown
 
 #to get the BOOTCHART
 INIT_BOOTCHART := true
+
+#Enable/Disable Resistive TouchScreen calibration
+TARGET_HAVE_TSLIB := true

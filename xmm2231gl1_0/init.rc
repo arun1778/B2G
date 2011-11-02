@@ -22,6 +22,15 @@ loglevel 3
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar
     export VLX_ADB_DEV /dev/vbpipe6
 
+# setup TouchScreen calibration global environment variables
+    export TSLIB_TSDEVICE /dev/input/event1
+    export TSLIB_CALIBFILE /data/data/touchscreen.test/files/pointercal
+    export POINTERCAL_FILE /data/data/touchscreen.test/files/pointercal
+    export TSLIB_CONFFILE /system/ts.conf
+    export TSLIB_CONSOLEDEVICE none
+    export TSLIB_FBDEVICE /dev/graphics/fb0
+    export TSLIB_PLUGINDIR /system/lib
+
 # Backward compatibility
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
