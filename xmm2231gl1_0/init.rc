@@ -38,6 +38,9 @@ loglevel 3
 # Backwards Compat - XXX: Going away in G*
     symlink /mnt/sdcard /sdcard
 
+    chown  bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown  bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chmod  0660 /sys/class/rfkill/rfkill0/state
     mkdir /system
     mkdir /data 0771 system system
     mkdir /cache 0770 system cache
@@ -90,7 +93,7 @@ loglevel 3
     mount  ext3 /dev/block/hda1 /system ro remount
 #    mount  ext3 /dev/block/hda1 /system rw remount
 
-    mount  ext3 /dev/block/hdc1 /data nosuid nodev data=journal
+    mount  ext3 /dev/block/hdc1 /data nosuid nodev data=writeback
 #    mount  vfat /dev/block/hdd1 /sdcard nosuid nodev
 
 	mount  ext3 /dev/block/hdb1 /cache nosuid nodev
@@ -292,6 +295,8 @@ on boot
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
     class_start default
+chown bluetooth bluetooth /dev/btfe0 
+chown bluetooth bluetooth /dev/rfkill
 
 ## Daemon processes to be run by init.
 ##
@@ -353,103 +358,43 @@ service bootanim /system/bin/bootanimation
     disabled
     oneshot
 
-#csr synergy changes 1
-	chmod  666 /system/bin/dbus-daemon
 
 service dbus /system/bin/dbus-daemon --system --nofork
     socket dbus stream 666 bluetooth bluetooth
     user bluetooth
     group bluetooth net_bt_admin
 
-#service bluetoothd /system/bin/bluetoothd -n
-#    socket bluetooth stream 660 bluetooth bluetooth
-#    socket dbus_bluetooth stream 660 bluetooth bluetooth
+service bluetoothd /system/bin/logwrapper /system/bin/bluetoothd -n
+    socket bluetooth stream 660 bluetooth bluetooth
+    socket dbus_bluetooth stream 660 bluetooth bluetooth
     # init.rc does not yet support applying capabilities, so run as root and
     # let bluetoothd drop uid to bluetooth with the right linux capabilities
-#    group bluetooth net_bt_admin misc
-#    disabled
+    group bluetooth net_bt_admin misc
+    disabled
 
-#SMS01908937     [XMM6181] BT: Progress notification of OPP transfer status is missing in DUT
-#service synergysdpops /system/etc/synergy_sdptool.sh 12 0x1105 ReservedOPPS
-#user root
-#oneshot
+service hfag /system/bin/sdptool add --channel=10 HFAG
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
 
-#SMS01908937     [XMM6181] BT: Progress notification of OPP transfer status is missing in DUT
-#service synergysdppbap /system/etc/synergy_sdptool.sh 19 0x112F ReservedPBAPS
-#user root
-#oneshot
+service hsag /system/bin/sdptool add --channel=11 HSAG
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
 
-##csr synergy changes 1.1 for starting the synergy service
-#chown root shell /system/etc/init.synergy.sh
-#chmod 0550 /system/etc/init.synergy.sh
+service opush /system/bin/sdptool add --channel=12 OPUSH
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
 
-#service synergy /system/etc/init.synergy.sh
-	#user root
-	#group bluetooth wifi net_bt_admin
-	#oneshot
-
-#csr synergy changes 2 
-
-#service hfag /system/bin/sdptool add --channel=10 HFAG
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    disabled
-#    oneshot
-
-#csr synergy changes 3 
-#service hsag /system/bin/sdptool add --channel=11 HSAG
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    disabled
-#    oneshot
-
-
-#csr synergy changes 4
-#service opush /system/bin/sdptool add --channel=12 OPUSH
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    disabled
-#    oneshot
-
-#csr synergy changes 5 
-#service pbap /system/bin/sdptool add --channel=19 PBAP
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    disabled
-#    oneshot
-
-#csr synergy changes 6
-
-service dhcpcd /system/bin/logwrapper /system/bin/dhcpcd -d -B 
-	wlan0
-	disabled
-	oneshot
-
-#csr synergy changes 7
-
-#service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
-	#user root
-	#group wifi inet
-	#socket wpa_wlan0 dgram 660 wifi wifi
-	#oneshot
-
-#csr synergy changes 10
-# Make start_synergy.sh executable, as it will start synergy service.
-    #chown root shell /system/etc/synergy_fts.sh
-    #chmod 0550 /system/etc/synergy_fts.sh
-
-#csr synergy changes 11
-#service synergy_fts_init /system/etc/synergy_fts.sh
-    #user root
-	#group sdcard_rw
-	#oneshot
-
-#csr synergy changes 12
-# Driver insertion for Synergy HID host functionality
-#service hidloopback /system/etc/insert-hiddrv.sh
-    #user root
-    #group sdcard_rw
-    #oneshot
+service pbap /system/bin/sdptool add --channel=19 PBAP
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
 
 service installd /system/bin/installd
     socket installd stream 600 system system
@@ -480,4 +425,9 @@ service dumpstate /system/bin/dumpstate -s
     socket dumpstate stream 0660 shell log
     disabled
     oneshot
+service hciattach /system/bin/hciattach -n /dev/btfe0 any 115200
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+
 
