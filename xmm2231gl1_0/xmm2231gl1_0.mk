@@ -30,7 +30,9 @@ PRODUCT_PACKAGES := \
     Sync \
     Updater \
     CalendarProvider \
-    SyncProvider
+    SyncProvider \
+    Stk
+
 
 $(call inherit-product, build/target/product/generic.mk)
 
