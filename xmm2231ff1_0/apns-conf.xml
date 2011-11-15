@@ -706,7 +706,7 @@
 <apn carrier="MTNL Delhi Prepaid" mcc="404" mnc="69" apn="gprsppsdel" user="mtnl" server="" password="mtnl123" proxy="" port="" mmsproxy="172.16.39.10" mmsport="9201" mmsc="http://172.16.39.140/mms/" type="default,dun,mms"/>
 <apn carrier="MTNL Mumbai Prepaid" mcc="404" mnc="69" apn="gprsppsmum" user="mtnl" server="" password="mtnl123" proxy="" port="" mmsproxy="172.16.39.10" mmsport="9401" mmsc="http://172.16.39.140/mms/" type="default,dun,mms"/>
 <apn carrier="Airtel" mcc="404" mnc="70" apn="airtelgprs.com" user="" server="" password="" proxy="" port="" mmsproxy="100.1.201.172" mmsport="8799" mmsc="http://100.1.201.171:10021/mmsc" type="default,dun,mms"/>
-<apn carrier="BSNL" mcc="404" mnc="71" apn="bsnlnet" user="MSISDN" server="" password="MSISDN" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="BSNL" mcc="404" mnc="71" apn="bsnlnet" user="MSISDN" server="" password="MSISDN" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun,supl"/>
 <apn carrier="BSNL MMS" mcc="404" mnc="71" apn="mmssouth.cellone.in" user="MSISDN" server="" password="mmsc" proxy="" port="" mmsproxy="10.7.236.11" mmsport="8080" mmsc="http://10.7.236.11:8514" type="mms"/>
 <apn carrier="BSNL" mcc="404" mnc="72" apn="bsnlnet" user="MSISDN" server="" password="MSISDN" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
 <apn carrier="BSNL MMS" mcc="404" mnc="72" apn="mmssouth.cellone.in" user="MSISDN" server="" password="mmsc" proxy="" port="" mmsproxy="10.7.236.11" mmsport="8080" mmsc="http://10.7.236.11:8514" type="mms"/>
@@ -756,6 +756,8 @@
 <apn carrier="Airtel" mcc="404" mnc="98" apn="airtelgprs.com" user="" server="" password="" proxy="" port="" mmsproxy="100.1.201.172" mmsport="8799" mmsc="http://100.1.201.171:10021/mmsc" type="default,dun,mms"/>
 <apn carrier="Reliance MMS" mcc="405" mnc="01" apn="rcommms" user="" server="" password="" proxy="" port="" mmsproxy="10.239.221.5" mmsport="8080" mmsc="http://mms.rcom.co.in:6081/mms" type="mms"/>
 <apn carrier="Reliance" mcc="405" mnc="01" apn="rcomnet" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="TA TA DoCoMo" mcc="405" mnc="03" apn="TATA.DOCOMO.INTERNET" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="TA TA DoCoMo MMS" mcc="405" mnc="03" apn="TATA.DOCOMO.MMS" user="" server="" password="" proxy="" port="" mmsproxy="10.124.26.94" mmsport="8799" mmsc="http://mmsc/" type="mms"/>
 <apn carrier="TA TA DoCoMo" mcc="405" mnc="025" apn="TATA.DOCOMO.INTERNET" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
 <apn carrier="TA TA DoCoMo MMS" mcc="405" mnc="025" apn="TATA.DOCOMO.MMS" user="" server="" password="" proxy="" port="" mmsproxy="10.124.26.94" mmsport="8799" mmsc="http://mmsc/" type="mms"/>
 <apn carrier="TA TA DoCoMo" mcc="405" mnc="026" apn="TATA.DOCOMO.INTERNET" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
