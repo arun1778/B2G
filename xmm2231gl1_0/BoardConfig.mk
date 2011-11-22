@@ -36,3 +36,10 @@ INIT_BOOTCHART := true
 
 #Enable/Disable Resistive TouchScreen calibration
 TARGET_HAVE_TSLIB := true
+
+#Enable/Disable libui Code Coverage for TSLIB changes
+#Enable only when TARGET_HAVE_TSLIB is enabled else not.
+ifeq ($(TARGET_HAVE_TSLIB),true)
+TARGET_HAVE_TSLIB_GCOV := false
+endif
+
