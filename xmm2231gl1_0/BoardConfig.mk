@@ -6,7 +6,7 @@ TARGET_BOARD_PLATFORM := xmm2231
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv6
 
 TARGET_NO_BOOTLOADER := true
@@ -32,7 +32,7 @@ BOARD_EGL_CFG := device/imc/xmm2231gl1_0/egl.cfg
 TARGET_BOOTLOADER_BOARD_NAME := unknown
 
 #to get the BOOTCHART
-INIT_BOOTCHART := true
+#INIT_BOOTCHART := true
 
 #Enable/Disable Resistive TouchScreen calibration
 TARGET_HAVE_TSLIB := true
