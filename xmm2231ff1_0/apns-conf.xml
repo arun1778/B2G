@@ -786,8 +786,6 @@
 <apn carrier="TA TA DoCoMo MMS" mcc="405" mnc="038" apn="TATA.DOCOMO.MMS" user="" server="" password="" proxy="" port="" mmsproxy="10.124.26.94" mmsport="8799" mmsc="http://mmsc/" type="mms"/>
 <apn carrier="TA TA DoCoMo" mcc="405" mnc="039" apn="TATA.DOCOMO.INTERNET" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
 <apn carrier="TA TA DoCoMo MMS" mcc="405" mnc="039" apn="TATA.DOCOMO.MMS" user="" server="" password="" proxy="" port="" mmsproxy="10.124.26.94" mmsport="8799" mmsc="http://mmsc/" type="mms"/>
-<apn carrier="Reliance MMS" mcc="405" mnc="03" apn="rcommms" user="" server="" password="" proxy="" port="" mmsproxy="10.239.221.5" mmsport="8080" mmsc="http://mms.rcom.co.in:6081/mms" type="mms"/>
-<apn carrier="Reliance" mcc="405" mnc="03" apn="rcomnet" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
 <apn carrier="TA TA DoCoMo" mcc="405" mnc="040" apn="TATA.DOCOMO.INTERNET" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
 <apn carrier="TA TA DoCoMo MMS" mcc="405" mnc="040" apn="TATA.DOCOMO.MMS" user="" server="" password="" proxy="" port="" mmsproxy="10.124.26.94" mmsport="8799" mmsc="http://mmsc/" type="mms"/>
 <apn carrier="TA TA DoCoMo" mcc="405" mnc="041" apn="TATA.DOCOMO.INTERNET" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
