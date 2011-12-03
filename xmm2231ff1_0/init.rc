@@ -192,7 +192,9 @@ loglevel 3
     chmod 666 /dev/vvideo
     chmod 666 /dev/vblitter
     chmod 666 /dev/pmem_gfx
-	chmod 666 /dev/vsns_misc
+    chmod 666 /dev/vsns_misc
+
+    chmod 666 /data/misc/acdapi/calib.dat
 
    setprop vomx.request  /dev/vbpipe4
    setprop vomx.callback /dev/vbpipe5
