@@ -411,6 +411,16 @@ service installd /system/bin/installd
 service flash_recovery /system/etc/install-recovery.sh
     oneshot
 
+service dhcpcd /system/bin/dhcpcd -d -B wlan0
+    disabled
+    oneshot
+
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/system/etc/wifi/wpa_supplicant.conf
+    user root
+    group system wifi inet
+    socket wpa_wlan0 dgram 660 wifi wifi
+    oneshot
+
 service racoon /system/bin/racoon
     socket racoon stream 600 system system
     # racoon will setuid to vpn after getting necessary resources.
