@@ -180,6 +180,9 @@ loglevel 3
     mkdir /data/lost+found 0770
     mkdir /cache/lost+found 0770
 
+    # mount sdcard image file to loop device
+    mount vfat loop@/data/sdcard.bin /mnt/sdcard
+
     # double check the perms, in case lost+found already exists, and set owner
     chown root root /data/lost+found
     chmod 0770 /data/lost+found
