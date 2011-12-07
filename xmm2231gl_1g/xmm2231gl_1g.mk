@@ -34,7 +34,8 @@ PRODUCT_PACKAGES := \
 $(call inherit-product, build/target/product/generic.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.enable-record=true
+    media.stagefright.enable-record=true \
+    ro.xmm2231-ota=true
 
 PRODUCT_NAME   := xmm2231gl_1g
 PRODUCT_DEVICE := xmm2231gl_1g

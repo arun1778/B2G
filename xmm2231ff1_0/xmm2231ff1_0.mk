@@ -37,7 +37,8 @@ PRODUCT_PACKAGES := \
 $(call inherit-product, build/target/product/generic.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.enable-record=true
+    media.stagefright.enable-record=true \
+    ro.xmm2231-ota=true
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number (currently 1.0)

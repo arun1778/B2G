@@ -13,6 +13,10 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := true
 TARGET_PROVIDES_INIT_RC := true
 
+TARGET_USERIMAGES_USE_EXT2 := true
+
+TARGET_RECOVERY_UI_LIB := librecovery_ui_xmm2231
+
 USE_CAMERA_STUB := false
 
 BOARD_USES_ALSA_AUDIO := true
@@ -33,3 +37,16 @@ TARGET_BOOTLOADER_BOARD_NAME := unknown
 
 #to get the BOOTCHART
 #INIT_BOOTCHART := true
+
+#Recovery settings below
+
+#Include xmm2231 specific UI for recovery (this library is built by variant and defines fx. menu texts & key mappings)
+TARGET_RECOVERY_UI_LIB := librecovery_ui_xmm2231_ff
+
+#Include xmm2231 specific code for handle custom edify script entries. Will be linked with updater binary inside ota package.
+TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_imc
+
+#Include variant specific release script steps (for OTA generation)
+#Either specify full path to extension .py file or path in which "releasetools.py" exist (trailing slash needed)
+TARGET_RELEASETOOLS_EXTENSIONS := device/imc/ota-extensions/releasetools.py
+
