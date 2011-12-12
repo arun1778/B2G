@@ -196,6 +196,7 @@ loglevel 3
     chmod 666 /dev/vbpipe5
     chmod 666 /dev/vbpipe7
     chmod 666 /dev/vbpipe8
+    chmod 666 /dev/vbpipe12
 
     chmod 666 /dev/vshm
 
