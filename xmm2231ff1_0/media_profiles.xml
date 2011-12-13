@@ -80,7 +80,7 @@
     <!-- Each camcorder profile defines a set of predefined configuration parameters -->
     <CamcorderProfiles>
 	<EncoderProfile quality="high" fileFormat="3gp" duration="60">
-	    <Video codec="m4v" bitRate="4000000" width="640" height="480" frameRate="15"/>
+	    <Video codec="m4v" bitRate="1000000" width="320" height="240" frameRate="15"/>
 	    <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
 	</EncoderProfile>
 	<EncoderProfile quality="low" fileFormat="3gp" duration="30">
@@ -112,15 +112,15 @@
 		 minFrameRate="1" maxFrameRate="20"/>
 
     <VideoEncoderCap name="h263" enabled="true"
-		 minBitRate="192000" maxBitRate="4000000"
-		 minFrameWidth="176" maxFrameWidth="640"
-		 minFrameHeight="144" maxFrameHeight="480"
+		 minBitRate="192000" maxBitRate="1000000"
+		 minFrameWidth="176" maxFrameWidth="320"
+		 minFrameHeight="144" maxFrameHeight="240"
 		 minFrameRate="1" maxFrameRate="20"/>
 
     <VideoEncoderCap name="m4v" enabled="true"
-		   minBitRate="192000" maxBitRate="4000000"
-		   minFrameWidth="176" maxFrameWidth="640"
-		   minFrameHeight="144" maxFrameHeight="480"
+		   minBitRate="192000" maxBitRate="1000000"
+		   minFrameWidth="176" maxFrameWidth="320"
+		   minFrameHeight="144" maxFrameHeight="240"
 		   minFrameRate="1" maxFrameRate="20"/>
 
     <AudioEncoderCap name="amrnb" enabled="true" 
