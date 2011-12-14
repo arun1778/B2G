@@ -29,6 +29,9 @@ on init
     chmod 666 /dev/vbpipe8
     setprop log.redirect-stdio true
 
+    #Switch on backlight
+    write /sys/class/leds/lcd-backlight/brightness 10
+
 on boot
 
     ifup lo
