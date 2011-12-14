@@ -36,6 +36,7 @@ on init
     chmod 666 /dev/vbpipe5
     chmod 666 /dev/vbpipe7
     chmod 666 /dev/vbpipe8
+    chmod 666 /dev/pmem_gfx    
     setprop log.redirect-stdio true
 
 on boot
