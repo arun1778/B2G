@@ -59,3 +59,8 @@ TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_imc
 #Either specify full path to extension .py file or path in which "releasetools.py" exist (trailing slash needed)
 TARGET_RELEASETOOLS_EXTENSIONS := device/imc/common/ota-extensions/releasetools.py
 
+#DRM support
+PEKALL_DRM_SUPPORT := true
+
+#FM support
+BUILD_WITH_PEKALL_FMRADIO := true

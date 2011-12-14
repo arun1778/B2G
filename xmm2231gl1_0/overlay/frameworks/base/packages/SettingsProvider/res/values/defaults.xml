@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="def_auto_time">false</bool>
+    <bool name="def_install_non_market_apps">true</bool>
+    <string name="airplane_mode_toggleable_radios" translatable="false"></string>
+    <fraction name="def_window_animation_scale">50%</fraction>
+    <fraction name="def_window_transition_scale">0%</fraction>
+</resources>
