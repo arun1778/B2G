@@ -1,16 +1,10 @@
-# Copyright (C) 2009 The Android Open Source Project
+# Copyright (C) 2011 Intel Mobile Communications GmbH
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Releasetools hook example for XMM2231
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# Here you can add variant specific custom steps to the OTA process
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# imc.testfnc is implemented inside updater/extra_hooks.c
 
 """Emit commands needed for IMC devices during OTA installation
 (installing the radio image)."""
