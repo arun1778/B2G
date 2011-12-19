@@ -4,6 +4,7 @@ PRODUCT_PACKAGE_OVERLAYS := device/imc/xmm2231gl1_0/overlay
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
+	AlarmClock \
     ApiDemos \
     AvrcpPlayer \
     csrApps \
@@ -73,7 +74,6 @@ PRODUCT_COPY_FILES += \
 BUILD_WITH_PEKALL_FMRADIO := true
 
 #Include Pekall's Makefile
-BUILD_WITH_PEKALL_FMRADIO := true
 ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
 endif

@@ -4,6 +4,7 @@ PRODUCT_PACKAGE_OVERLAYS := device/imc/xmm2231ff1_0/overlay
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
+	AlarmClock \
     ApiDemos \
     AvrcpPlayer \
     csrApps \

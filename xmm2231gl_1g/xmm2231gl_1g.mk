@@ -1,8 +1,10 @@
 # Call overlays before running other builds
+BUILD_PEKALL_APP := true
 PRODUCT_PACKAGE_OVERLAYS := device/imc/xmm2231gl1_0/overlay
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
+	AlarmClock \
     AvrcpPlayer \
     csrApps \
     HIDApp \
@@ -63,4 +65,6 @@ PRODUCT_COPY_FILES += \
 BUILD_WITH_PEKALL_FMRADIO := true
  
 #Include Pekall's Makefile
+ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
+endif
