@@ -1,3 +1,10 @@
+/*
+ * Copyright (C) 2011 Intel Mobile Communications GmbH
+ *
+ * Example of variant specific function to include inside an OTA update
+ * 
+ */
+
 #include <stdio.h>
 #include <errno.h>
 #include <stdarg.h>
