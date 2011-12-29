@@ -64,3 +64,5 @@ PEKALL_DRM_SUPPORT := true
 
 #FM support
 BUILD_WITH_PEKALL_FMRADIO := true
+
+BUILD_PEKALL_APP := true
