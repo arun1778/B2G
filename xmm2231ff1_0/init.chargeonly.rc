@@ -10,7 +10,7 @@ on init
     symlink /system/etc /etc
 
 #    Currently no SDCARD on globe
-#    symlink /dev/block/hdd1 /dev/block/sdcard
+#    symlink /dev/block/mmcblk0p1 /dev/block/sdcard
 
     mkdir /sdcard
     mkdir /system

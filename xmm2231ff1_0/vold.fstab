@@ -9,7 +9,7 @@
 ######################
 
 # Mounts the first usable partition of the specified device
-dev_mount sdcard /mnt/sdcard auto /devices/virtual/block/hdd
+dev_mount sdcard /mnt/sdcard auto /devices/virtual/block/mmcblk0
 
 
 
