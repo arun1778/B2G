@@ -84,7 +84,7 @@
 	    <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
 	</EncoderProfile>
 	<EncoderProfile quality="low" fileFormat="3gp" duration="30">
-	    <Video codec="m4v" bitRate="384000" width="176" height="144" frameRate="15"/>
+	    <Video codec="h263" bitRate="384000" width="176" height="144" frameRate="15"/>
 	    <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
 	</EncoderProfile>
 
