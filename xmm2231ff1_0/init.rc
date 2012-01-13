@@ -189,6 +189,7 @@ loglevel 3
     chmod 666 /dev/vbpipe3
     chmod 666 /dev/vbpipe4
     chmod 666 /dev/vbpipe5
+    chmod 666 /dev/vbpipe6
     chmod 666 /dev/vbpipe7
     chmod 666 /dev/vbpipe8
     chmod 666 /dev/vbpipe11
@@ -340,9 +341,6 @@ service vold /system/bin/vold
 
 service netd /system/bin/netd
     socket netd stream 0660 root system
-
-service vusbman /system/bin/vusbman vbpipe8
-    user root
 
 service debuggerd /system/bin/debuggerd
 
