@@ -4,8 +4,7 @@
 
 TARGET_BOARD_PLATFORM := mbd_xmm2231
 
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_ABI := armeabi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv6
 
