@@ -1,6 +1,17 @@
-# Call overlays before running other builds
 BUILD_PEKALL_APP := true
-PRODUCT_PACKAGE_OVERLAYS := device/imc/xmm2231gl1_0/overlay
+
+#BUILD_TARGET
+#Option: openmarket
+#Option: china
+#Option: cmcc
+BUILD_TARGET := openmarket
+
+ifeq ($(BUILD_TARGET), cmcc)
+PRODUCT_PACKAGE_OVERLAYS += device/pekall/cmcc/overlay
+endif
+
+# Call overlays before running other builds
+PRODUCT_PACKAGE_OVERLAYS += device/imc/xmm2231gl1_0/overlay
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
@@ -46,9 +57,8 @@ $(call inherit-product, build/target/product/generic.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-record=true \
     ro.xmm2231-ota=true \
-    persist.sys.language=zh \
-    persist.sys.timezone = Asia/Shanghai \
-    persist.sys.country=CN 
+    persist.sys.language=en \
+    persist.sys.country=US
 
 
 # The OpenGL ES API level that is natively supported by this device.
@@ -58,9 +68,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=65536
 PRODUCT_NAME   := xmm2231gl1_0
 PRODUCT_DEVICE := xmm2231gl1_0
 PRODUCT_BRAND  := imc
-
-#BUILD_CMCC_OR_MARKET
-BUILD_CMCC_OR_MARKET := open
+PRODUCT_LOCALES :=ldpi zh_CN en_US
 
 
 include frameworks/base/data/sounds/OriginalAudio.mk
@@ -74,6 +82,5 @@ BUILD_WITH_PEKALL_FMRADIO := true
 
 #Include Pekall's Makefile
 ifeq ($(BUILD_PEKALL_APP), true)
-PRODUCT_LOCALES :=ldpi zh_CN en_US
 include device/pekall/pekall.mk
 endif
