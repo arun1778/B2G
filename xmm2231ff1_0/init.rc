@@ -106,7 +106,7 @@ loglevel 3
     # Create dump dir and collect dumps.
     # Do this before we mount cache so eventually we can use cache for
     # storing dumps on platforms which do not have a dedicated dump partition.
-   
+
     mkdir /data/dontpanic
     chown root log /data/dontpanic
     chmod 0750 /data/dontpanic
@@ -150,11 +150,13 @@ loglevel 3
     mkdir /data/misc/vpn/profiles 0770 system system
     # give system access to wpa_supplicant.conf for backup and restore
     mkdir /data/misc/wifi 0770 wifi wifi
-	mkdir /data/misc/wifi/sockets 0770 wifi wifi
-	mkdir /data/misc/dhcp 0770 dhcp dhcp
-	chown dhcp dhcp /data/misc/dhcp
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
     chmod 0770 /data/misc/wifi
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    chown wifi wifi /data/misc/wifi
+    chown wifi wifi /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/local 0771 shell shell
     mkdir /data/local/tmp 0771 shell shell
     mkdir /data/data 0771 system system
@@ -298,7 +300,7 @@ on boot
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
     class_start default
-chown bluetooth bluetooth /dev/btfe0 
+chown bluetooth bluetooth /dev/btfe0
 chown bluetooth bluetooth /dev/rfkill
 
 ## Daemon processes to be run by init.
