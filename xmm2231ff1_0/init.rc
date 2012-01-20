@@ -22,6 +22,11 @@ loglevel 3
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar
     export VLX_ADB_DEV /dev/vbpipe6
 
+# GCOV setup
+    mkdir /data/local/gcda 0777 root root
+    export GCOV_PREFX /data/local/gcda
+    export GCOV_PREFIX_STRIP 123
+
 # Backward compatibility
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
