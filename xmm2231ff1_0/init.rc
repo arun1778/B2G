@@ -98,7 +98,7 @@ loglevel 3
     mount  ext3 /dev/block/hda1 /system ro remount
 #    mount  ext3 /dev/block/hda1 /system rw remount
 
-    mount  ext3 /dev/block/hdc1 /data nosuid nodev data=writeback
+    mount  ext3 /dev/block/hdc1 /data nosuid nodev data=writeback barrier=1
 #    mount  vfat /dev/block/mmcblk0p1 /sdcard nosuid nodev
 
 	mount  ext3 /dev/block/hdb1 /cache nosuid nodev
