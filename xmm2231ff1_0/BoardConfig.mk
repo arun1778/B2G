@@ -22,11 +22,10 @@ BOARD_USES_ALSA_AUDIO := true
 BUILD_WITH_ALSA_UTILS := true
 #BOARD_USES_GENERIC_AUDIO := true
 
-#CSR synergy change to include wifi,fm,bt
+#CSR synergy change to include wifi, fm, bt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_FM := true
-#BOARD_HAVE_WIFI := true
-BOARD_HAVE_WIFI := false
+BOARD_HAVE_WIFI := true
 #BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 USE_BLUEZ := false
 
