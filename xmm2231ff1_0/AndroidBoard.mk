@@ -49,9 +49,19 @@ PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml           \
 	frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-#Include custom file into OTA zipfile RADIO directory (filename makes no sense for now - just an example)
-#Included file could be referenced from variant specific releasetools.py
+ifdef DIST_BUILD_NUMBER
+#Include custom files into OTA zipfile RADIO directory for DIST build only (otherwise jalunas are not generated yet)
+#Included files could be referenced from variant specific releasetools.py
 #BEWARE! There can be NO whitespace after the comma in the below clause
-$(call add-radio-file,asound.conf)
+$(call add-radio-file,XMM2231.fls)
+ifeq ($(BUILD_MODE),release)
+$(call add-radio-file,fls_dir_release/vmjaluna.fls)
+$(call add-radio-file,fls_dir_release/vmjaluna_recovery.fls)
+else
+$(call add-radio-file,fls_dir_debug/vmjaluna.fls)
+$(call add-radio-file,fls_dir_debug/vmjaluna_recovery.fls)
+endif
+
+endif
 
 include bootable/recovery/ImcRecoveryRamdisk.mk

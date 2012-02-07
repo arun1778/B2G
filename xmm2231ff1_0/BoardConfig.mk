@@ -47,7 +47,7 @@ TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_imc
 
 #Include variant specific release script steps (for OTA generation)
 #Either specify full path to extension .py file or path in which "releasetools.py" exist (trailing slash needed)
-TARGET_RELEASETOOLS_EXTENSIONS := device/imc/ota-extensions/releasetools.py
+TARGET_RELEASETOOLS_EXTENSIONS := device/imc/common/ota-extensions/releasetools.py
 
 #DRM support
 PEKALL_DRM_SUPPORT := true

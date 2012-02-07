@@ -12,7 +12,6 @@
 #include <string.h>
 #include "edify/expr.h"
 
-
 Value* ImcTestFn(const char* name, State* state, int argc, Expr* argv[]) {
     char* dummyfile;
     char* somestring;
@@ -31,8 +30,42 @@ Value* ImcTestFn(const char* name, State* state, int argc, Expr* argv[]) {
     return StringValue(strdup(""));
 }
 
+Value* TriggerMexFota(const char* name, State* state, int argc, Expr* argv[]) {
+    char* mex_fota_cmd_file;
+    char* command;
+    char* filenames;
+    FILE *fp;
+    int len;
+    if (ReadArgs(state, argv, 3, &mex_fota_cmd_file, &command, &filenames) < 0) {
+        return NULL;
+    }
+
+    fp=fopen(mex_fota_cmd_file, "wb");
+    if(!fp)
+    {
+      printf("Could not open %s for writing\n", mex_fota_cmd_file);
+      return NULL;
+    }
+    
+    printf("Writing MEX fota command % to %s\n", command, mex_fota_cmd_file);
+    len=strlen(command);
+    fwrite(command, 1, len, fp);
+    printf("Wrote %i bytes to %s\n", len, mex_fota_cmd_file);
+
+    printf("Writing list of MEX fota files to %s: %s\n", mex_fota_cmd_file, filenames);
+    len=strlen(filenames);
+    fwrite(filenames, 1, len, fp);
+    printf("Wrote %i bytes to %s\n", len, mex_fota_cmd_file);
+    fclose(fp);
+
+    return StringValue(strdup(""));
+}
+
+
+
 void Register_librecovery_updater_imc() {
     fprintf(stderr, "installing IMC updater extensions\n");
     RegisterFunction("imc.testfnc", ImcTestFn);
+    RegisterFunction("imc.triggermexfota", TriggerMexFota);
 
 }

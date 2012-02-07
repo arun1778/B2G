@@ -20,7 +20,7 @@
 #include "recovery_ui.h"
 #include "common.h"
 
-const char* CONSOLE_LOGGING = "/dev/ttyS1";
+const char* CONSOLE_LOGGING = "/dev/ttyNK";
 
 char* MENU_HEADERS[] = { "Vol Up/Dn - Home to select.",
                          "",
@@ -36,7 +36,7 @@ void recover_firmware_update_log();
 
 int device_recovery_start() {
     //recover_firmware_update_log();
-    ui_print("VARIANT: Registered IMC updater extensions\n");
+    //ui_print("VARIANT: Registered IMC updater extensions\n");
     return 0;
 }
 
@@ -101,13 +101,13 @@ int device_perform_action(int which) {
     switch(which)
     {
     case ITEM_REBOOT:
-    	ui_print("VARIANT: Action reboot\n");
+      //ui_print("VARIANT: Action reboot\n");
     	break;
     case ITEM_WIPE_DATA:
-    	ui_print("VARIANT: Action wipe\n");
+      //ui_print("VARIANT: Action wipe\n");
     	break;
     case ITEM_APPLY_SDCARD:
-    	ui_print("VARIANT: Action apply\n");
+      //ui_print("VARIANT: Action apply\n");
     	break;
 
     }
@@ -116,7 +116,7 @@ int device_perform_action(int which) {
 }
 
 int device_wipe_data() {
-    ui_print("VARIANT: device_wipe_data() stub\n");
+  //ui_print("VARIANT: device_wipe_data() stub\n");
 
 	return 0;
 }

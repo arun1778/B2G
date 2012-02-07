@@ -1,3 +1,4 @@
+#
 # Copyright (C) 2011 Intel Mobile Communications GmbH
 #
 # Releasetools hook example for XMM2231
@@ -12,15 +13,35 @@
 import common
 import re
 
-
-#IFX
 #These steps are called in the beginning of an OTA update
 def FullOTA_Assertions(info):
   print "IMC: vendor specific OTA assertion hook for full OTA update"
 
-
 def IncrementalOTA_Assertions(info):
   print "IMC: vendor specific OTA assertion hook for incremental OTA update"
+
+def AddFlsFiles(info):
+  files = "XMM2231.fls,vmjaluna.fls,vmjaluna_recovery.fls"
+  print "Packaging FLS files: " + files
+  for filename in files.split(','):
+    path = "RADIO/" + filename
+    print "Processing " + path
+    filehandle = info.input_zip.read(path)
+    common.ZipWriteStr(info.output_zip, filename, filehandle)
+
+  info.script.Print("Extracting FLS files...")
+  #Copy FLS files to SD card
+
+  info.script.Mount("vfat","/dev/block/sdcard", "/sdcard"); 
+
+  for filename in files.split(','):
+    path = "/sdcard/" + filename
+    info.script.AppendExtra('package_extract_file("' + filename + '","' +  path + '");')
+
+  mexfilelist = "/mmc/" + files
+  mexfilelist = mexfilelist.replace(",",",/mmc/")
+  print "List of files for MEX FOTA update: " + mexfilelist
+  info.script.AppendExtra('imc.triggermexfota("/sdcard/mex_fota_cmd", "FLASH:", "' + mexfilelist + '");')
 
 def IFX_test(info):
   print "Installing IMC_test OTA extension"
@@ -40,11 +61,12 @@ def IFX_test(info):
   #Main script will unmount before resetting, but for sake of example, unmount here
   info.script.AppendExtra('unmount("/data");')
 
-#IFX
 #These steps are called in the beginning of an OTA update
 def FullOTA_InstallEnd(info):
   print "IMC: vendor specific OTA end hook for full OTA update"
-  IFX_test(info)
+  AddFlsFiles(info)
 
 def IncrementalOTA_InstallEnd(info):
   print "IMC: vendor specific OTA end hook for incremental OTA update"
+  AddFlsFiles(info)
+
