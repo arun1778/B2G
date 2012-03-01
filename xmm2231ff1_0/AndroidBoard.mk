@@ -8,6 +8,7 @@ PRODUCT_COPY_FILES += \
 # keyboard maps
 #
 include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := vkp.kcm
 include $(BUILD_KEY_CHAR_MAP)
 
@@ -63,5 +64,3 @@ $(call add-radio-file,fls_dir_debug/vmjaluna_recovery.fls)
 endif
 
 endif
-
-include bootable/recovery/ImcRecoveryRamdisk.mk

@@ -1,4 +1,4 @@
-BUILD_PEKALL_APP := true
+BUILD_PEKALL_APP := false
 
 #BUILD_TARGET
 #Option: openmarket
@@ -67,7 +67,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=65536
 PRODUCT_NAME   := xmm2231ff1_0
 PRODUCT_DEVICE := xmm2231ff1_0
 PRODUCT_BRAND  := imc
-PRODUCT_LOCALES :=ldpi zh_CN en_US
+PRODUCT_LOCALES :=mdpi
 
 include frameworks/base/data/sounds/OriginalAudio.mk
 include device/common/gps/gps_as_supl.mk

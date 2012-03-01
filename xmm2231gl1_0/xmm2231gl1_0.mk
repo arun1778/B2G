@@ -1,4 +1,4 @@
-BUILD_PEKALL_APP := true
+BUILD_PEKALL_APP := false
 
 #BUILD_TARGET
 #Option: openmarket

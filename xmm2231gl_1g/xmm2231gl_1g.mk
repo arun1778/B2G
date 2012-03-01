@@ -1,4 +1,4 @@
-BUILD_PEKALL_APP := true
+BUILD_PEKALL_APP := false
 
 #BUILD_TARGET
 #Option: openmarket
@@ -70,7 +70,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/base/data/sounds/effects/LowBattery.ogg:system/media/audio/ui/LowBattery.ogg
 
 BUILD_WITH_PEKALL_FMRADIO := true
- 
+
 #Include Pekall's Makefile
 ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
