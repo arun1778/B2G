@@ -18,8 +18,8 @@ on init
     mkdir /cache
     mount /tmp /tmp tmpfs
 
-    mount  ext3 /dev/block/hda1 /system
-    mount  ext3 /dev/block/hda1 /system ro remount
+    mount  ext4 /dev/block/hda1 /system
+    mount  ext4 /dev/block/hda1 /system ro remount
     chown system cache /cache
     chmod 0770 /cache
 

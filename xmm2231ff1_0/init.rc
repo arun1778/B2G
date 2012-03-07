@@ -111,10 +111,10 @@ loglevel 3
 
 on fs
 # mount mtd partitions
-    mount  ext3 /dev/block/hda1 /system
-    mount  ext3 /dev/block/hda1 /system ro remount
-    mount  ext3 /dev/block/hdc1 /data nosuid nodev data=writeback
-    mount  ext3 /dev/block/hdb1 /cache nosuid nodev
+    mount  ext4 /dev/block/hda1 /system
+    mount  ext4 /dev/block/hda1 /system ro remount
+    mount  ext4 /dev/block/hdc1 /data nosuid nodev data=writeback
+    mount  ext4 /dev/block/hdb1 /cache nosuid nodev
     chown system system /data
     chmod 0771 /data
 
