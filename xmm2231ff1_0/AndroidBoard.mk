@@ -30,7 +30,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/asound.conf:system/etc/asound.conf \
 	$(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml \
 	$(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
-	$(LOCAL_PATH)/busybox:system/bin/busybox
+	$(LOCAL_PATH)/busybox:system/bin/busybox \
+	$(LOCAL_PATH)/memusage.sh:system/bin/memusage.sh
 
 # media configuration xml file
 
