@@ -19,6 +19,10 @@ loglevel 3
     export LOOP_MOUNTPOINT /mnt/obb
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/core-junit.jar
 
+# This enables ADB over USB
+    export VLX_ADB_DEV /dev/vbpipe6
+
+
 # Backward compatibility
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
@@ -306,18 +310,18 @@ service console /system/bin/sh
     console
 
 # adbd is controlled by the persist.service.adb.enable system property
-#service adbd /sbin/adbd
-    #disabled
+service adbd /sbin/adbd
+    disabled
 
 # adbd on at boot in emulator
-#on property:ro.kernel.qemu=1
-    #start adbd
+on property:ro.kernel.qemu=1
+    start adbd
 
-#on property:persist.service.adb.enable=1
-    #start adbd
+on property:persist.service.adb.enable=1
+    start adbd
 
-#on property:persist.service.adb.enable=0
-    #stop adbd
+on property:persist.service.adb.enable=0
+    stop adbd
 
 service servicemanager /system/bin/servicemanager
     user system
