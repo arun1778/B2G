@@ -1,11 +1,10 @@
 BUILD_PEKALL_APP := false
-
 #BUILD_TARGET
 #Option: openmarket
 #Option: china
 #Option: cmcc
 BUILD_TARGET := openmarket
-
+TARGET_BOARD_PLATFORM := mbd_xmm2231
 ifeq ($(BUILD_TARGET), cmcc)
 PRODUCT_PACKAGE_OVERLAYS += device/pekall/cmcc/overlay
 endif
@@ -49,7 +48,11 @@ PRODUCT_PACKAGES := \
     CalendarProvider \
     SyncProvider \
     Stk \
-    ClockSet
+    ClockSet \
+    copybit.$(TARGET_BOARD_PLATFORM) \
+    overlay.$(TARGET_BOARD_PLATFORM) \
+    lights.$(TARGET_BOARD_PLATFORM) \
+    gralloc.$(TARGET_BOARD_PLATFORM)
 
 
 $(call inherit-product, build/target/product/generic.mk)
