@@ -434,3 +434,7 @@ service dumpstate /system/bin/dumpstate -s
     socket dumpstate stream 0660 shell log
     disabled
     oneshot
+service coex_sniffer /system/bin/csrbluezcoexsniffer -o 2222
+    oneshot
+service coex_sockserver /system/bin/coex_sockserver
+    oneshot
