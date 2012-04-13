@@ -59,5 +59,8 @@ BUILD_PEKALL_APP := false
 # Build with GCOV support
 BUILD_GCOV_SUPPORT := false
 
+# Build all GMS apps
+BUILD_GMS_ALL := false
+
 TARGET_BOOTIMAGE_USE_EXT4 := true
 TARGET_USERIMAGES_USE_EXT4 := true
