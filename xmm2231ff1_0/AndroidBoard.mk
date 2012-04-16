@@ -61,11 +61,17 @@ ifdef DIST_BUILD_NUMBER
 #BEWARE! There can be NO whitespace after the comma in the below clause
 $(call add-radio-file,XMM2231.fls)
 ifeq ($(BUILD_MODE),release)
-$(call add-radio-file,fls_dir_release/vmjaluna.fls)
-$(call add-radio-file,fls_dir_release/vmjaluna_recovery.fls)
+$(call add-radio-file,fls_dir_release/vlx.fls)
+$(call add-radio-file,fls_dir_release/linux.fls)
+$(call add-radio-file,fls_dir_release/initrd.fls)
+$(call add-radio-file,fls_dir_release/initrd_recovery.fls)
 else
-$(call add-radio-file,fls_dir_debug/vmjaluna.fls)
-$(call add-radio-file,fls_dir_debug/vmjaluna_recovery.fls)
+$(call add-radio-file,fls_dir_debug/vlx.fls)
+$(call add-radio-file,fls_dir_debug/linux.fls)
+$(call add-radio-file,fls_dir_debug/initrd.fls)
+$(call add-radio-file,fls_dir_debug/initrd_recovery.fls)
 endif
 
 endif
+
+include bootable/recovery/ImcRecoveryRamdisk.mk

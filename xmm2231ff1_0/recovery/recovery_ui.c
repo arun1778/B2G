@@ -20,8 +20,6 @@
 #include "recovery_ui.h"
 #include "common.h"
 
-const char* CONSOLE_LOGGING = "/dev/ttyNK";
-
 char* MENU_HEADERS[] = { "Vol Up/Dn - Home to select.",
                          "",
                          NULL };
@@ -58,8 +56,7 @@ int device_reboot_now(volatile char* key_pressed, int key_code) {
 }
 
 int device_handle_key(int key, int visible) {
-    printf("%s: Keycode: %i (see linux/input.h)\n", __FUNCTION__, key);
-    //    ui_print("Keycode: %i\n", key);
+  //printf("%s: Keycode: %i (see linux/input.h)\n", __FUNCTION__, key);
     int alt = ui_key_pressed(KEY_LEFTALT) || ui_key_pressed(KEY_RIGHTALT);
 
     if (key == KEY_BACK && ui_key_pressed(KEY_HOME)) {

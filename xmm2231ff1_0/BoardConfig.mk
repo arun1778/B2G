@@ -64,3 +64,7 @@ BUILD_GMS_ALL := false
 
 TARGET_BOOTIMAGE_USE_EXT4 := true
 TARGET_USERIMAGES_USE_EXT4 := true
+
+# recvoery fstab
+recovery_fstab := device/imc/xmm2231ff1_0/recovery.fstab
+
