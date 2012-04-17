@@ -18,7 +18,7 @@ USE_CAMERA_STUB := true
 
 BOARD_USES_ALSA_AUDIO := true
 BUILD_WITH_ALSA_UTILS := true
-BOARD_USES_GENERIC_AUDIO := true
+#BOARD_USES_GENERIC_AUDIO := true
 
 #CSR synergy change to include wifi, fm, bt
 BOARD_HAVE_BLUETOOTH := true

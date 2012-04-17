@@ -52,7 +52,8 @@ PRODUCT_PACKAGES := \
     copybit.$(TARGET_BOARD_PLATFORM) \
     overlay.$(TARGET_BOARD_PLATFORM) \
     lights.$(TARGET_BOARD_PLATFORM) \
-    gralloc.$(TARGET_BOARD_PLATFORM)
+    gralloc.$(TARGET_BOARD_PLATFORM) \
+    alsa.default
 
 
 $(call inherit-product, build/target/product/generic.mk)
