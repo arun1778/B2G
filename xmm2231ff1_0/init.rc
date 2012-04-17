@@ -105,6 +105,8 @@ loglevel 3
     chmod 666 /dev/vbpipe8
     chmod 666 /dev/vbpipe11
     chmod 666 /dev/vbpipe12
+    chmod 666 /dev/vbpipe13
+    chmod 666 /dev/vbpipe14
 
     chmod 666 /dev/vshm
 
