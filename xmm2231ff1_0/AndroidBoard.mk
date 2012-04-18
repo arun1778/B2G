@@ -30,12 +30,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/asound.conf:system/etc/asound.conf \
 	$(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml \
 	$(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
-	$(LOCAL_PATH)/busybox:system/bin/busybox \
-	$(LOCAL_PATH)/ril_libs/librapid-ril-util.so:system/lib/librapid-ril-util.so \
-	$(LOCAL_PATH)/ril_libs/libreference-ril.so:system/lib/libreference-ril.so \
-	$(LOCAL_PATH)/ril_libs/libril.so:system/lib/libril.so \
-	$(LOCAL_PATH)/ril_libs/rril/repository.txt:system/etc/rril/repository.txt \
-	$(LOCAL_PATH)/ril_libs/rild:system/bin/rild
+	$(LOCAL_PATH)/busybox:system/bin/busybox
 
 # media configuration xml file
 
