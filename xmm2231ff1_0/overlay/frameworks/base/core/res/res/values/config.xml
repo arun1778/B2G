@@ -5,4 +5,7 @@
 
     <!-- Use strict comparation for Chinese -->
     <bool name="config_use_strict_phone_number_comparation">true</bool>
+
+    <!-- If this is true, the screen will fade off. -->
+    <bool name="config_animateScreenLights">false</bool>
 </resources>
