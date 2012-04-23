@@ -293,6 +293,7 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_def
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
+    write /sys/class/leds/lcd-backlight/brightness 150
 
 # Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -368,11 +369,11 @@ service media /system/bin/mediaserver
     group system audio camera graphics inet net_bt net_bt_admin net_raw
     ioprio rt 4
 
-service bootanim /system/bin/bootanimation
-    user graphics
-    group graphics
-    disabled
-    oneshot
+#service bootanim /system/bin/bootanimation
+#    user graphics
+#    group graphics
+#    disabled
+#    oneshot
 
 service dbus /system/bin/dbus-daemon --system --nofork
     socket dbus stream 660 bluetooth bluetooth

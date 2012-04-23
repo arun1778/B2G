@@ -38,6 +38,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml
 
+# Splash image file
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/initlogo.rle:root/initlogo.rle
+
 # camera configuration xml file
 
 PRODUCT_COPY_FILES += \
