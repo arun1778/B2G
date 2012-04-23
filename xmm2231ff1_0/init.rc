@@ -190,6 +190,11 @@ on post-fs
     mkdir /data/app 0771 system system
     mkdir /data/property 0700 root root
 
+# GCOV setup
+    mkdir /data/local/gcda 0777 root root
+    export GCOV_PREFIX /data/local/gcda
+    export GCOV_PREFIX_STRIP 123
+
     # create dalvik-cache and double-check the perms
     mkdir /data/dalvik-cache 0771 system system
     chown system system /data/dalvik-cache
