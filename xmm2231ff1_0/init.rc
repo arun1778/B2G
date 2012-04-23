@@ -43,6 +43,9 @@ loglevel 3
 # Backwards Compat - XXX: Going away in G*
     symlink /mnt/sdcard /sdcard
 
+    chown  bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown  bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chmod  0660 /sys/class/rfkill/rfkill0/state
     mkdir /system
     mkdir /data 0771 system system
     mkdir /cache 0770 system cache
@@ -309,6 +312,8 @@ on boot
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
     class_start default
+chown bluetooth bluetooth /dev/btfe0
+chown bluetooth bluetooth /dev/rfkill
 
 ## Daemon processes to be run by init.
 ##
@@ -381,11 +386,11 @@ service media /system/bin/mediaserver
 #    oneshot
 
 service dbus /system/bin/dbus-daemon --system --nofork
-    socket dbus stream 660 bluetooth bluetooth
+    socket dbus stream 666 bluetooth bluetooth
     user bluetooth
     group bluetooth net_bt_admin
 
-service bluetoothd /system/bin/bluetoothd -n
+service bluetoothd /system/bin/logwrapper /system/bin/bluetoothd -n
     socket bluetooth stream 660 bluetooth bluetooth
     socket dbus_bluetooth stream 660 bluetooth bluetooth
     # init.rc does not yet support applying capabilities, so run as root and
@@ -446,6 +451,10 @@ service dumpstate /system/bin/dumpstate -s
     socket dumpstate stream 0660 shell log
     disabled
     oneshot
+service hciattach /system/bin/hciattach -n /dev/btfe0 any 115200
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
 service coex_sniffer /system/bin/csrbluezcoexsniffer -o 2222
     oneshot
 service coex_sockserver /system/bin/coex_sockserver
