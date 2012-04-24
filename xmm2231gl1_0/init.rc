@@ -467,7 +467,7 @@ service hciattach /system/bin/hciattach -n /dev/btfe0 any 115200
     group bluetooth net_bt_admin
     disabled
 
-service coex_sniffer /system/bin/csrbluezcoexsniffer -o 2222
-    oneshot
-service coex_sockserver /system/bin/coex_sockserver
-    oneshot
+#service coex_sniffer /system/bin/csrbluezcoexsniffer -o 2222
+#    oneshot
+#service coex_sockserver /system/bin/coex_sockserver
+#    oneshot
