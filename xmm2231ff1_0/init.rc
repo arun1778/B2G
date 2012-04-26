@@ -470,7 +470,7 @@ service hciattach /system/bin/hciattach -n /dev/btfe0 any 115200
 #service coex_sockserver /system/bin/coex_sockserver
 #    oneshot
 
-service dhcpcd /system/bin/dhcpcd -d -B -o domain_name_servers wlan0
+service dhcpcd_wlan0 /system/bin/dhcpcd -BKL wlan0
     disabled
     oneshot
 

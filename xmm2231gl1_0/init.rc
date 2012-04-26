@@ -429,7 +429,7 @@ service installd /system/bin/installd
 service flash_recovery /system/etc/install-recovery.sh
     oneshot
 
-service dhcpcd /system/bin/dhcpcd -d -B -o domain_name_servers wlan0
+service dhcpcd_wlan0 /system/bin/dhcpcd -BKL wlan0
     disabled
     oneshot
 
