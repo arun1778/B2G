@@ -77,12 +77,15 @@ PRODUCT_LOCALES :=mdpi
 include frameworks/base/data/sounds/OriginalAudio.mk
 include device/common/gps/gps_as_supl.mk
 
+#include English TTS lang for CTS
+include external/svox/pico/lang/PicoLangDefaultInSystem.mk
+
 PRODUCT_COPY_FILES += \
 	frameworks/base/data/sounds/effects/LowBattery.ogg:system/media/audio/ui/LowBattery.ogg
  
 BUILD_WITH_PEKALL_FMRADIO := true
 
 #Include Pekall's Makefile
-ifeq ($(BUILD_PEKALL_APP), true)
+#ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
-endif
+#endif

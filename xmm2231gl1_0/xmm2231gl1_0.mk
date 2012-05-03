@@ -81,6 +81,6 @@ PRODUCT_COPY_FILES += \
 BUILD_WITH_PEKALL_FMRADIO := true
 
 #Include Pekall's Makefile
-ifeq ($(BUILD_PEKALL_APP), true)
+#ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
-endif
+#endif
