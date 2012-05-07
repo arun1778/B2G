@@ -54,7 +54,8 @@ PRODUCT_PACKAGES := \
     lights.$(TARGET_BOARD_PLATFORM) \
     gralloc.$(TARGET_BOARD_PLATFORM) \
     alsa.default \
-    chargeonly
+    chargeonly \
+    gps.$(TARGET_BOARD_PLATFORM)
 
 
 $(call inherit-product, build/target/product/generic.mk)
