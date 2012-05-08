@@ -53,6 +53,7 @@ PRODUCT_PACKAGES := \
     overlay.$(TARGET_BOARD_PLATFORM) \
     lights.$(TARGET_BOARD_PLATFORM) \
     gralloc.$(TARGET_BOARD_PLATFORM) \
+    sensors.$(TARGET_BOARD_PLATFORM) \
     alsa.default \
     chargeonly \
     gps.$(TARGET_BOARD_PLATFORM)
