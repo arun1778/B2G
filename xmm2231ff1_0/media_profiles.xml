@@ -1,5 +1,10 @@
 <!--
- Copyright (C) 2010 The Android Open Source Project
+Copyright (C) 2012 by Intel Mobile Communications GmbH
+
+Notes:
+May  08 2012: IMC: adapt low profile video recording
+
+Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -84,8 +89,8 @@
 	    <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
 	</EncoderProfile>
 	<EncoderProfile quality="low" fileFormat="3gp" duration="30">
-	    <Video codec="h263" bitRate="384000" width="176" height="144" frameRate="15"/>
-	    <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
+	    <Video codec="h263" bitRate="84000" width="176" height="144" frameRate="15"/>
+	    <Audio codec="amrnb" bitRate="5150" sampleRate="8000" channels="1"/>
 	</EncoderProfile>
 
 	<ImageEncoding quality="90"/>
@@ -112,7 +117,7 @@
 		 minFrameRate="1" maxFrameRate="20"/>
 
     <VideoEncoderCap name="h263" enabled="true"
-		 minBitRate="192000" maxBitRate="1000000"
+		 minBitRate="64000" maxBitRate="1000000"
 		 minFrameWidth="176" maxFrameWidth="400"
 		 minFrameHeight="144" maxFrameHeight="240"
 		 minFrameRate="1" maxFrameRate="20"/>
@@ -124,7 +129,7 @@
 		   minFrameRate="1" maxFrameRate="20"/>
 
     <AudioEncoderCap name="amrnb" enabled="true" 
-		 minBitRate="5525" maxBitRate="12200" 
+		 minBitRate="5150" maxBitRate="12200" 
 		 minSampleRate="8000" maxSampleRate="8000" 
 		 minChannels="1" maxChannels="1"/>
 
