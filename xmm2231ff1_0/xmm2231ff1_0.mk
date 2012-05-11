@@ -54,6 +54,7 @@ PRODUCT_PACKAGES := \
     lights.$(TARGET_BOARD_PLATFORM) \
     gralloc.$(TARGET_BOARD_PLATFORM) \
     libstagefrighthw \
+    libcamera \
     sensors.$(TARGET_BOARD_PLATFORM) \
     alsa.default \
     chargeonly \
