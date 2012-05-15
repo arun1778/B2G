@@ -1,3 +1,8 @@
+# Copyright (C) 2011 - 2012 Intel Mobile Communications GmbH
+
+# Notes:
+# May 15 2012: Updated Copyright information
+
 on early-init
     start ueventd
 
