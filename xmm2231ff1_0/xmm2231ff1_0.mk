@@ -60,6 +60,10 @@ PRODUCT_PACKAGES := \
     chargeonly \
     gps.$(TARGET_BOARD_PLATFORM)
 
+ifeq ($(DELIVERY),'YES')
+PRODUCT_PACKAGES += libstagefright
+endif
+
 
 $(call inherit-product, build/target/product/generic.mk)
 
