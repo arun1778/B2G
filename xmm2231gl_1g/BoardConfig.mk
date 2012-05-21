@@ -62,6 +62,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/imc/common/ota-extensions/releasetools.
 
 #DRM support
 PEKALL_DRM_SUPPORT := true
+BUILD_PEKALL_APP_SOURCE := true
 
 #FM support
 BUILD_WITH_PEKALL_FMRADIO := true

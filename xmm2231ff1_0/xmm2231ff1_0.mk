@@ -1,4 +1,5 @@
-BUILD_PEKALL_APP := false
+BUILD_PEKALL_APP := true
+BUILD_PEKALL_APP_SOURCE := false
 #BUILD_TARGET
 #Option: openmarket
 #Option: china
@@ -70,6 +71,7 @@ $(call inherit-product, build/target/product/generic.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-record=true \
     ro.xmm2231-ota=true \
+    ro.config.ringtone=SitarVsSitar.ogg \
     persist.sys.language=en \
     persist.sys.country=US
 
@@ -80,7 +82,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=65536
 PRODUCT_NAME   := xmm2231ff1_0
 PRODUCT_DEVICE := xmm2231ff1_0
 PRODUCT_BRAND  := imc
-PRODUCT_LOCALES :=mdpi
+PRODUCT_LOCALES :=ldpi zh_CN en_US
 
 include frameworks/base/data/sounds/OriginalAudio.mk
 include device/common/gps/gps_as_supl.mk
@@ -94,6 +96,6 @@ PRODUCT_COPY_FILES += \
 BUILD_WITH_PEKALL_FMRADIO := true
 
 #Include Pekall's Makefile
-#ifeq ($(BUILD_PEKALL_APP), true)
+ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
-#endif
+endif
