@@ -61,6 +61,7 @@ TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_imc
 TARGET_RELEASETOOLS_EXTENSIONS := device/imc/common/ota-extensions/releasetools.py
 
 BUILD_PEKALL_APP := true
+BUILD_PEKALL_APP_SOURCE := true
 
 #DRM support
 PEKALL_DRM_SUPPORT := true

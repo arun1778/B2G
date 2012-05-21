@@ -19,6 +19,7 @@ key 114   VOLUME_DOWN
 
 key 116   POWER             WAKE_DROPPED
 key 212   CAMERA
+key 233   HEADSETHOOK       WAKE
 
 
 
