@@ -73,7 +73,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.xmm2231-ota=true \
     ro.config.ringtone=SitarVsSitar.ogg \
     persist.sys.language=en \
-    persist.sys.country=US
+    persist.sys.country=US \
+    windowsmgr.max_events_per_sec=240 
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number (currently 1.0)
