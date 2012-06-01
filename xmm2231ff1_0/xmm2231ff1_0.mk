@@ -1,3 +1,7 @@
+# Copyright (C) 2011 - 2012 Intel Mobile Communications GmbH
+# Notes:
+# May 30 2012: Bootanimation support
+
 BUILD_PEKALL_APP := true
 BUILD_PEKALL_APP_SOURCE := false
 #BUILD_TARGET
@@ -92,6 +96,7 @@ include device/common/gps/gps_as_supl.mk
 include external/svox/pico/lang/PicoLangDefaultInSystem.mk
 
 PRODUCT_COPY_FILES += \
+	device/imc/xmm2231ff1_0/quickbootanim.zip:system/media/quickbootanim.zip \
 	frameworks/base/data/sounds/effects/LowBattery.ogg:system/media/audio/ui/LowBattery.ogg
  
 BUILD_WITH_PEKALL_FMRADIO := true
