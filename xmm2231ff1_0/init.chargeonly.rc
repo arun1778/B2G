@@ -1,7 +1,20 @@
 # Copyright (C) 2011 - 2012 Intel Mobile Communications GmbH
+#
+# This code based on ./android/system/core/rootdir/init.rc from Android
+#
+# The following changes were made
+# Notes
+# Mar 07 2012: Update mount option for mount ext4 images.
+# Dec 30 2011: Enable the default sector size in vBD as 512
+# Dec 14 2011:
+# Fix recovery boot so backlight will be on with native GFX driver
+# Fix permissions for pmem_gfx for chargemode
+# Dec 07 2011:
+# Add recovery variant part for each variant
+# Add needed recovery build flags and constructs to each variant
+# Add common ota-hook example (how to add your own steps to the ota package)
+# Add chargeonly startup scripts for all variants
 
-# Notes:
-# May 15 2012: Updated Copyright information
 
 on early-init
     start ueventd
