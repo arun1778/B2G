@@ -59,19 +59,19 @@ ifdef DIST_BUILD_NUMBER
 #Include custom files into OTA zipfile RADIO directory for DIST build only (otherwise jalunas are not generated yet)
 #Included files could be referenced from variant specific releasetools.py
 #BEWARE! There can be NO whitespace after the comma in the below clause
-$(call add-radio-file,XMM2231.fls)
 ifeq ($(BUILD_MODE),release)
-$(call add-radio-file,fls_dir_release/vlx.fls)
-$(call add-radio-file,fls_dir_release/linux.fls)
-$(call add-radio-file,fls_dir_release/initrd.fls)
-$(call add-radio-file,fls_dir_release/initrd_recovery.fls)
+$(call add-radio-file,fls_dir_release_4g/vlx.fls)
+$(call add-radio-file,fls_dir_release_4g/linux.fls)
+$(call add-radio-file,fls_dir_release_4g/initrd.fls)
+$(call add-radio-file,fls_dir_release_4g/initrd_recovery.fls)
+$(call add-radio-file,mex_4g_release/XMM2231.fls)
 else
-$(call add-radio-file,fls_dir_debug/vlx.fls)
-$(call add-radio-file,fls_dir_debug/linux.fls)
-$(call add-radio-file,fls_dir_debug/initrd.fls)
-$(call add-radio-file,fls_dir_debug/initrd_recovery.fls)
+$(call add-radio-file,fls_dir_debug_4g/vlx.fls)
+$(call add-radio-file,fls_dir_debug_4g/linux.fls)
+$(call add-radio-file,fls_dir_debug_4g/initrd.fls)
+$(call add-radio-file,fls_dir_debug_4g/initrd_recovery.fls)
+$(call add-radio-file,mex_4g_debug/XMM2231.fls)
 endif
-
 endif
 
 include bootable/recovery/ImcRecoveryRamdisk.mk
