@@ -1,6 +1,7 @@
 # Copyright (C) 2011 - 2012 Intel Mobile Communications GmbH
 # Notes:
 # May 30 2012: Bootanimation support
+# Jun 07 2012: Add partial GMS package into FFRD build
 
 BUILD_PEKALL_APP := true
 BUILD_PEKALL_APP_SOURCE := false
@@ -105,3 +106,7 @@ BUILD_WITH_PEKALL_FMRADIO := true
 ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
 endif
+
+#include GMS package
+BUILD_GMS_ALL := false
+include external/gms/google/products/gms.mk
