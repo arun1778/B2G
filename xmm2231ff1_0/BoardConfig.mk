@@ -53,19 +53,16 @@ PEKALL_DRM_SUPPORT := true
 
 #FM Support
 BUILD_WITH_PEKALL_FMRADIO := true
-
 BUILD_PEKALL_APP := true
-BUILD_PEKALL_APP_SOURCE := true
+BUILD_PEKALL_APP_SOURCE := false
 
 # Build with GCOV support
 BUILD_GCOV_SUPPORT := false
 
 # Build all GMS apps
 BUILD_GMS_ALL := false
-
 TARGET_BOOTIMAGE_USE_EXT4 := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # recvoery fstab
 recovery_fstab := device/imc/xmm2231ff1_0/recovery.fstab
-

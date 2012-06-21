@@ -4,7 +4,6 @@
 # Jun 07 2012: Add partial GMS package into FFRD build
 
 BUILD_PEKALL_APP := true
-BUILD_PEKALL_APP_SOURCE := false
 #BUILD_TARGET
 #Option: openmarket
 #Option: china
