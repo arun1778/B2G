@@ -2,6 +2,7 @@
 # Notes:
 # May 30 2012: Bootanimation support
 # Jun 07 2012: Add partial GMS package into FFRD build
+# Jun 25 2012: [XMM2231_V2:CTS]: Implement MK file modifications in order to pass PackageSignatureTest of CtsSecurityTestCases.
 
 BUILD_PEKALL_APP := true
 #BUILD_TARGET
@@ -13,6 +14,11 @@ TARGET_BOARD_PLATFORM := mbd_xmm2231
 ifeq ($(BUILD_TARGET), cmcc)
 PRODUCT_PACKAGE_OVERLAYS += device/pekall/cmcc/overlay
 endif
+
+#
+# Path for the Intel keys and certificates
+#
+RELEASE_KEY_PATH := device/imc/common/security
 
 # Call overlays before running other builds
 PRODUCT_PACKAGE_OVERLAYS += device/imc/xmm2231ff1_0/overlay
