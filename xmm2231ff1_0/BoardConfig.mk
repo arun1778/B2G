@@ -54,7 +54,7 @@ PEKALL_DRM_SUPPORT := true
 #FM Support
 BUILD_WITH_PEKALL_FMRADIO := true
 BUILD_PEKALL_APP := true
-BUILD_PEKALL_APP_SOURCE := false
+BUILD_PEKALL_APP_SOURCE := true
 
 # Build with GCOV support
 BUILD_GCOV_SUPPORT := false
