@@ -3,6 +3,7 @@
 # May 30 2012: Bootanimation support
 # Jun 07 2012: Add partial GMS package into FFRD build
 # Jun 25 2012: [XMM2231_V2:CTS]: Implement MK file modifications in order to pass PackageSignatureTest of CtsSecurityTestCases.
+# Jul 09 2012: Enable full GMS build by default for DELIVERY!=YES
 
 BUILD_PEKALL_APP := true
 #BUILD_TARGET
@@ -90,6 +91,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # This is a 16.16 fixed point number (currently 1.0)
 PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=65536
 
+ifneq '$(DELIVERY)' 'YES'
+# Configure GMS build for 2231
+BUILD_GMS_NO_VIDEO_CHAT := true # no front camera support available
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 160M  # for passing android make image
+
+#include GMS package
+$(call inherit-product, external/gms/google/products/gms.mk)
+
+# Configure client id for GMS on Android
+# Allow bypassing of setup wizard
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.com.google.clientidbase=android-imc \
+	ro.setupwizard.mode=OPTIONAL
+
+endif
+
 PRODUCT_NAME   := xmm2231ff1_0
 PRODUCT_DEVICE := xmm2231ff1_0
 PRODUCT_BRAND  := imc
@@ -111,7 +128,3 @@ BUILD_WITH_PEKALL_FMRADIO := true
 ifeq ($(BUILD_PEKALL_APP), true)
 include device/pekall/pekall.mk
 endif
-
-#include GMS package
-BUILD_GMS_ALL := false
-include external/gms/google/products/gms.mk
