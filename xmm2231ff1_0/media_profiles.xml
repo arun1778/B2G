@@ -89,8 +89,8 @@ Copyright (C) 2010 The Android Open Source Project
 	    <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
 	</EncoderProfile>
 	<EncoderProfile quality="low" fileFormat="3gp" duration="30">
-	    <Video codec="h263" bitRate="84000" width="176" height="144" frameRate="15"/>
-	    <Audio codec="amrnb" bitRate="5150" sampleRate="8000" channels="1"/>
+	    <Video codec="h263" bitRate="110000" width="176" height="144" frameRate="15"/>
+	    <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
 	</EncoderProfile>
 
 	<ImageEncoding quality="90"/>
