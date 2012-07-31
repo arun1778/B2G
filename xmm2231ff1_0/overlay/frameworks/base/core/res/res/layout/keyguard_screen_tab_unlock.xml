@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 **
+** Copyright (C) 2011 Capital Alliance Software LTD (Pekall)
 ** Copyright 2009, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License")
@@ -79,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/carrier"
-        android:layout_marginTop="40dip"
+        android:layout_marginTop="80dip"
         android:layout_marginLeft="20dip"
         android:paddingBottom="0dip"
         >
