@@ -4,6 +4,7 @@
 # Jun 07 2012: Add partial GMS package into FFRD build
 # Jun 25 2012: [XMM2231_V2:CTS]: Implement MK file modifications in order to pass PackageSignatureTest of CtsSecurityTestCases.
 # Jul 09 2012: Enable full GMS build by default for DELIVERY!=YES
+# Aug 01 2012: Fix OTA generation script failure
 
 BUILD_PEKALL_APP := true
 #BUILD_TARGET
@@ -94,7 +95,11 @@ PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=65536
 ifneq '$(DELIVERY)' 'YES'
 # Configure GMS build for 2231
 BUILD_GMS_NO_VIDEO_CHAT := true # no front camera support available
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 160M  # for passing android make image
+#  Following var need to be set for flash image generation part of android build
+#  to pass. Make sure the variable settings coincide with int team Android build 
+#  script.
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 167772160 #160M for passing android make image
+BOARD_FLASH_BLOCK_SIZE := 4096
 
 #include GMS package
 $(call inherit-product, external/gms/google/products/gms.mk)
