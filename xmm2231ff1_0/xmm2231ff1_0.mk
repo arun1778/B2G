@@ -5,6 +5,7 @@
 # Jun 25 2012: [XMM2231_V2:CTS]: Implement MK file modifications in order to pass PackageSignatureTest of CtsSecurityTestCases.
 # Jul 09 2012: Enable full GMS build by default for DELIVERY!=YES
 # Aug 01 2012: Fix OTA generation script failure
+# Aug 17 2012: Remove ApiDemos package
 
 BUILD_PEKALL_APP := true
 #BUILD_TARGET
@@ -28,7 +29,6 @@ PRODUCT_PACKAGE_OVERLAYS += device/imc/xmm2231ff1_0/overlay
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
 	AlarmClock \
-    ApiDemos \
     AvrcpPlayer \
     csrApps \
     HIDApp \
