@@ -1,0 +1,26 @@
+key 61    BACK              VIRTUAL
+key 230   SOFT_RIGHT        WAKE
+key 107   DPAD_CENTER       WAKE_DROPPED
+key 62    CALL              WAKE_DROPPED
+key 229   MENU              VIRTUAL
+key 139   MENU              VIRTUAL
+key 59    MENU              VIRTUAL
+key 127   SEARCH            WAKE_DROPPED
+key 217   SEARCH            WAKE_DROPPED
+key 231   CALL              WAKE_DROPPED
+key 232   DPAD_CENTER       WAKE_DROPPED
+key 108   DPAD_DOWN         WAKE_DROPPED
+key 103   DPAD_UP           WAKE_DROPPED
+key 102   HOME              WAKE
+key 105   DPAD_LEFT         WAKE_DROPPED
+key 106   DPAD_RIGHT        WAKE_DROPPED
+key 115   VOLUME_UP
+key 114   VOLUME_DOWN
+
+key 116   POWER             WAKE_DROPPED
+key 212   CAMERA
+key 233   HEADSETHOOK       WAKE
+
+
+
+
