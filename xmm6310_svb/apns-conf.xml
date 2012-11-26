@@ -16,6 +16,7 @@
 ** limitations under the License.
 **
 ** Nov 02,2012: APN list
+** Nov 26,2012: To provision the Singapore operators APNs into the apns xml file.
 -->
 
 <apns version="6">
@@ -463,4 +464,19 @@
 <apn carrier="China Mobile MMS" mcc="460" mnc="02" apn="cmwap" user="" server="" password="" proxy="10.0.0.172" port="80" mmsproxy="10.0.0.172" mmsport="80" mmsc="http://mmsc.monternet.com" type="mms,wap"/>
 <apn carrier="中国移动 (China Mobile) GPRS" mcc="460" mnc="07" apn="cmnet" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
 <apn carrier="中国移动彩信 (China Mobile)" mcc="460" mnc="07" apn="cmwap" user="" server="" password="" proxy="10.0.0.172" port="80" mmsproxy="10.0.0.172" mmsport="80" mmsc="http://mmsc.monternet.com" type="mms,wap"/>
+<apn carrier="SingTel" mcc="525" mnc="01" apn="e-ideas" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="IDEAS" mcc="525" mnc="01" apn="e-ideas" user="*" server="*" password="*" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun,mms"/>
+<apn carrier="IDEAS MMS" mcc="525" mnc="01" apn="e-ideas" user="65IDEAS" server="" password="65" proxy="" port="" mmsproxy="165.21.42.84" mmsport="8080" mmsc="http://mms.singtel.com:10021/mmsc" type="mms"/>
+<apn carrier="SingTel" mcc="525" mnc="02" apn="e-ideas" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="SingTel MMS" mcc="525" mnc="02" apn="e-ideas" user="65IDEAS" server="" password="IDEAS" proxy="" port="" mmsproxy="165.21.42.84" mmsport="8080" mmsc="http://mms.singtel.com:10021/mmsc" type="mms"/>
+<apn carrier="M1 MMS" mcc="525" mnc="03" apn="Miworld" user="" server="" password="" proxy="172.16.1.23" port="9201" mmsproxy="172.16.14.10" mmsport="9201" mmsc="http://mmsgw:8002" type="mms"/>
+<apn carrier="MiWorld WAP (GPRS)" mcc="525" mnc="03" apn="miworld" user="65" server="" password="user123" proxy="172.16.1.23" port="8081" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="M1 MMS" mcc="525" mnc="03" apn="miworld" user="65" server="" password="user123" proxy="" port="" mmsproxy="172.16.14.10" mmsport="8080" mmsc="http://mmsgw:8002" type="mms"/>
+<apn carrier="M1" mcc="525" mnc="03" apn="sunsurf" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="Sunsurf Internet" mcc="525" mnc="03" apn="sunsurf" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun,mms"/>
+<apn carrier="StarHub" mcc="525" mnc="05" apn="internet" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="Gee! MMS" mcc="525" mnc="05" apn="shmms" user="" server="" password="" proxy="" port="" mmsproxy="10.12.1.80" mmsport="80" mmsc="http://mms.starhubgee.com.sg:8002/" type="mms"/>
+<apn carrier="Gee! (GPRS)" mcc="525" mnc="05" apn="shwap" user="star" server="" password="hub" proxy="10.12.1.2" port="80" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="StarHub" mcc="525" mnc="05" apn="shwapint" user="" server="" password="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default,dun"/>
+<apn carrier="hicard" mcc="525" mnc="01" apn="hicard" user="6590563922" server="" password="65ideas" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type=""/>
 </apns>
