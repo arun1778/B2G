@@ -1,0 +1,81 @@
+# Copyright (C) 2011-2012 Intel Mobile Communications GmbH
+# Copyright (C) 2008 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# Notes:
+# Nov 02 2012: Add copyright.
+
+on early-init
+    start ueventd
+
+on init
+    export PATH /sbin:/system/sbin:/system/bin:/system/xbin
+    export ANDROID_ROOT /system
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
+    export VLX_ADB_DEV /dev/vbpipe6
+    
+	# add for start shell
+	#export LD_LIBRARY_PATH /system/lib
+
+    symlink /system/etc /etc
+
+    symlink /dev/block/mmcblk0p1 /dev/block/sdcard
+
+    mkdir /sdcard
+    mkdir /system
+    mkdir /data
+    mkdir /cache
+    mount /tmp /tmp tmpfs
+
+    # for start shell
+    #mount  ext4 /dev/block/hda1 /system barrier=1
+
+
+    chown system cache /cache
+    chmod 0770 /cache
+
+    # This may have been created by the recovery system with odd permissions
+    chown system cache /cache/recovery
+    chmod 0770 /cache/recovery
+
+    chmod 0777 /dev/ttyNK
+
+    chmod 666 /dev/vbpipe8
+
+    setprop log.redirect-stdio true
+    #Switch on backlight
+    write /sys/class/leds/lcd-backlight/brightness 150
+
+on boot
+
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    class_start default
+
+service ueventd /sbin/ueventd
+    critical
+
+#service adbd /sbin/adbd 
+#   start adbd
+
+#service console /system/bin/sh
+#    console
+
+#service vusbman /system/bin/vusbman vbpipe8
+#    user root
+
+service recovery /sbin/recovery
+
