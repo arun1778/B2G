@@ -1,26 +1,52 @@
-key 61    BACK              VIRTUAL
-key 230   SOFT_RIGHT        WAKE
-key 28   DPAD_CENTER       WAKE_DROPPED
-key 231    CALL              WAKE_DROPPED
-key 229   MENU              VIRTUAL
-key 139   MENU              VIRTUAL
-key 60    MENU              VIRTUAL
-key 127   SEARCH            WAKE_DROPPED
-key 217   SEARCH            WAKE_DROPPED
-key 231   CALL              WAKE_DROPPED
-key 57   DPAD_CENTER       WAKE_DROPPED
-key 108   DPAD_DOWN         WAKE_DROPPED
-key 103   DPAD_UP           WAKE_DROPPED
-key 102   HOME              WAKE
-key 105   DPAD_LEFT         WAKE_DROPPED
-key 106   DPAD_RIGHT        WAKE_DROPPED
-key 115   VOLUME_UP
-key 114   VOLUME_DOWN
-
-key 116   POWER             WAKE_DROPPED
-key 212   CAMERA
-key 233   HEADSETHOOK       WAKE
-
-
-
+key 27    BACK
+key 35    POWER            WAKE
+key 43    MENU
+key 45    CALL
+key 56    DPAD_RIGHT
+key 57    DPAD_DOWN
+key 58    SEARCH
+key 59    DPAD_UP
+key 60    DPAD_LEFT
+key 62    DPAD_CENTER       WAKE_DROPPED
+key 38    VOLUME_UP
+key 46    VOLUME_DOWN
+key 71    HOME
+key 72    POWER             WAKE
+key 0     I
+key 1     U
+key 2     O
+key 3     P
+key 4     T
+key 5     R
+key 6     Y
+key 8     K
+key 9     J
+key 10    L
+key 11    DEL
+key 12    F
+key 13    G
+key 14    H
+key 16    COMMA
+key 17    M
+key 18    PERIOD
+key 19    ENTER
+key 20    V
+key 21    B
+key 22    N
+key 24    X
+key 25    Z
+key 26    C
+#key 28   Func
+key 29    SHIFT_LEFT
+#key 30   Sym
+key 32    S
+key 33    A
+key 34    D
+key 40    W
+key 41    Q
+key 42    E
+key 48    SLASH
+key 49    SPACE
+#key 50   QUESTION
+key 51    CTRL_RIGHT
 
