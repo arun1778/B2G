@@ -1,9 +1,0 @@
-#
-# system.prop for generic sdk 
-#
-
-rild.libpath=/system/lib/libreference-ril.so
-rild.libargs=-d /dev/ttyS0
-ro.sf.lcd_density=120
-ro.telephony.default_network=1
-dalvik.vm.heapsize=24m

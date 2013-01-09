@@ -1,0 +1,11 @@
+key 30    HOME              WAKE
+key 38    BACK              VIRTUAL
+key 46    MENU              VIRTUAL
+key 54    VOLUME_UP
+key 62    VOLUME_DOWN
+key 72    POWER             WAKE_DROPPED
+key 233   HEADSETHOOK       WAKE
+
+
+
+

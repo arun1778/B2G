@@ -1,4 +1,4 @@
-# Copyright (C) 2011-2012 Intel Mobile Communications GmbH
+# Copyright (C) 2011-2013 Intel Mobile Communications GmbH
 # Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +15,9 @@
 #
 # Nov 02 2012: Modify for xmm6310_svb
 # Dec 04 2012: Modify for XMM6310 FFPCBA build
+# Jan 08 2013: Add condition check on TARGET_PRODUCT
+
+ifneq (,$(findstring $(TARGET_PRODUCT),xmm6310_ffpcba))
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
@@ -29,3 +32,4 @@ LOCAL_MODULE := librecovery_ui_xmm6310_ffpcba
 
 include $(BUILD_STATIC_LIBRARY)
 
+endif
