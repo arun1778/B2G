@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # Jan 10 2013: To adapt for xmm6321_svb
+# Jan 17 2013: Modify gralloc package file name using TARGET_BOARD_PLATFORM.
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -27,7 +28,7 @@ PRODUCT_MODEL := XMM6321 SVB
 PRODUCT_AAPT_CONFIG := normal mdpi
 
 PRODUCT_PACKAGES += \
-    gralloc.default \
+    gralloc.$(TARGET_BOARD_PLATFORM) \
     hwcomposer.default
 
 PRODUCT_COPY_FILES += \
