@@ -235,6 +235,10 @@ case "$DEVICE" in
 	flash_fastboot unlock $PROJECT
 	;;
 
+"grouper")
+	flash_fastboot unlock $PROJECT
+	;;
+
 "m4")
 	flash_fastboot unlock $PROJECT
 	;;

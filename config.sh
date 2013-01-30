@@ -4,7 +4,8 @@ REPO=./repo
 
 repo_sync() {
 	rm -rf .repo/manifest* &&
-	$REPO init -u $GITREPO -b $BRANCH -m $1.xml &&
+	#$REPO init -u $GITREPO -b $BRANCH -m $1.xml &&
+	$REPO init -u $GITREPO -m $1.xml &&
 	$REPO sync
 	ret=$?
 	if [ "$GITREPO" = "$GIT_TEMP_REPO" ]; then
@@ -29,18 +30,18 @@ case `uname` in
 esac
 
 GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
-BRANCH=${BRANCH:-v1-train}
+BRANCH=${BRANCH:-nightly}
 
 GIT_TEMP_REPO="tmp_manifest_repo"
 if [ -n "$2" ]; then
 	GITREPO=$GIT_TEMP_REPO
+	GITBRANCH="master"
 	rm -rf $GITREPO &&
 	git init $GITREPO &&
 	cp $2 $GITREPO/$1.xml &&
 	cd $GITREPO &&
 	git add $1.xml &&
 	git commit -m "manifest" &&
-	git branch -m $BRANCH &&
 	cd ..
 fi
 
@@ -71,6 +72,13 @@ case "$1" in
 
 "nexus-s-4g")
 	echo DEVICE=crespo4g >> .tmp-config &&
+	repo_sync $1
+	;;
+
+"nexus-7")
+	echo DEVICE=grouper >> .tmp-config &&
+	echo VENDOR=asus >> .tmp-config &&
+	echo LUNCH=full_grouper-eng >> .tmp-config &&
 	repo_sync $1
 	;;
 

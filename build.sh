@@ -27,6 +27,9 @@ function configure_device() {
     elif [ -f device/*/$DEVICE/extract-files.sh ] ; then
         important_files="device/*/$DEVICE/extract-files.sh"
         script="cd device/*/$DEVICE && ./extract-files.sh"
+    elif [ -f b2g-blobs/*/$DEVICE/download-blobs.sh ] ; then
+        important_files="b2g-blobs/*/$DEVICE/download-blobs.sh"
+        script="cd b2g-blobs/*/$DEVICE && ./download-blobs.sh"
     else
         important_files=
         script=
