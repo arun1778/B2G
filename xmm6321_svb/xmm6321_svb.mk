@@ -29,6 +29,11 @@ PRODUCT_AAPT_CONFIG := normal mdpi
 
 PRODUCT_PACKAGES += \
     gralloc.$(TARGET_BOARD_PLATFORM) \
+    audio.primary.$(TARGET_BOARD_PLATFORM) \
+    libauddriver \
+    tinyplay \
+    tinymix \
+    tinycap \
     hwcomposer.default
 
 PRODUCT_COPY_FILES += \
