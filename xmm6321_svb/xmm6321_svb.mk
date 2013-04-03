@@ -14,6 +14,7 @@
 # limitations under the License.
 # Jan 10 2013: To adapt for xmm6321_svb
 # Jan 17 2013: Modify gralloc package file name using TARGET_BOARD_PLATFORM.
+# Apr 03 2013: Create local copy overlay folder, and provide APN list.
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -42,10 +43,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/vkp.kl
 
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
+
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapstartsize=5m \
     dalvik.vm.heapsize=32m
 
 # default is nosdcard, S/W button enabled in resource
-DEVICE_PACKAGE_OVERLAYS := device/generic/armv7-a-neon/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 PRODUCT_CHARACTERISTICS := nosdcard
