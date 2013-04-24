@@ -3,7 +3,11 @@
 # May 30 2012: Bootanimation support
 # Jun 07 2012: Add partial GMS package into FFRD build
 # Jun 25 2012: [XMM2231_V2:CTS]: Implement MK file modifications in order to pass PackageSignatureTest of CtsSecurityTestCases.
-# Nov 02 2012: Modify for xmm6310_svb 
+# Nov 02 2012: Modify for xmm6310_svb
+# Apr 26 2013: Workspace contains both AOSP RIL & RPC RIL, if BUILD_RIL_TYPE set to RPC then AOSP RIL will not be built
+
+#RIL type RPC or AT based
+BUILD_RIL_TYPE := RPC
 
 BUILD_PEKALL_APP := true
 #BUILD_TARGET
@@ -82,7 +86,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.ringtone=SitarVsSitar.ogg \
     persist.sys.language=en \
     persist.sys.country=US \
-    windowsmgr.max_events_per_sec=240 
+    windowsmgr.max_events_per_sec=240
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number (currently 1.0)
@@ -102,7 +106,7 @@ include external/svox/pico/lang/PicoLangDefaultInSystem.mk
 PRODUCT_COPY_FILES += \
 	device/imc/xmm6310_svb/quickbootanim.zip:system/media/quickbootanim.zip \
 	frameworks/base/data/sounds/effects/LowBattery.ogg:system/media/audio/ui/LowBattery.ogg
- 
+
 BUILD_WITH_PEKALL_FMRADIO := true
 
 #Include Pekall's Makefile

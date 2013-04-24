@@ -15,6 +15,7 @@
 # Jan 10 2013: To adapt for xmm6321_svb
 # Jan 17 2013: Modify gralloc package file name using TARGET_BOARD_PLATFORM.
 # Apr 03 2013: Create local copy overlay folder, and provide APN list.
+# Apr 26 2013: Workspace contains both AOSP RIL & RPC RIL, if BUILD_RIL_TYPE set to RPC then AOSP RIL will not be built
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -24,6 +25,8 @@ PRODUCT_NAME := xmm6321_svb
 PRODUCT_DEVICE := xmm6321_svb
 PRODUCT_BRAND := IMC
 PRODUCT_MODEL := XMM6321 SVB
+#RIL type RPC or AT based
+BUILD_RIL_TYPE := RPC
 
 # Screen size is "normal", density is "mdpi"
 PRODUCT_AAPT_CONFIG := normal mdpi
