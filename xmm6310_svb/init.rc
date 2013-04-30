@@ -221,6 +221,10 @@ on post-fs
     mkdir /data/local/gcda 0777 root root
     export GCOV_PREFIX /data/local/gcda
     export GCOV_PREFIX_STRIP 123
+# Bullseye setup
+    mkdir /data/local/bullseye 0777 root root
+    export COVFILE /data/local/bullseye/test.cov
+    export COVERR /data/local/bullseye/cov.err
 
     # create dalvik-cache and double-check the perms
     mkdir /data/dalvik-cache 0771 system system

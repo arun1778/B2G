@@ -239,6 +239,11 @@ on post-fs-data
     mkdir /data/ssh 0750 root shell
     mkdir /data/ssh/empty 0700 root root
 
+# Bullseye setup
+    mkdir /data/local/bullseye 0777 root root
+    export COVFILE /data/local/bullseye/test.cov
+    export COVERR /data/local/bullseye/cov.err
+
     # create dalvik-cache, so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 system system
 
