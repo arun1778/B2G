@@ -16,6 +16,7 @@
 # Jan 10 2013: Modify to adapt for xmm6321_svb
 # Feb 25 2013: turn on backlight
 # Apr 10 2013: remove chmod of vbpipe4-5
+# May 06 2013: support GPT partition
 
 import /init.usb.rc
 import /init.${ro.hardware}.rc
@@ -147,10 +148,10 @@ loglevel 3
 on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
-    mount  ext4 /dev/block/hda1 /system
-    mount  ext4 /dev/block/hda1 /system ro remount
-    mount  ext4 /dev/block/hdc1 /data nosuid nodev data=journal
-    mount  ext4 /dev/block/hdb1 /cache nosuid nodev
+    mount  ext4 /dev/block/mmcblk0p8 /system
+    mount  ext4 /dev/block/mmcblk0p8 /system ro remount
+    mount  ext4 /dev/block/mmcblk0p10 /data nosuid nodev data=journal
+    mount  ext4 /dev/block/mmcblk0p9 /cache nosuid nodev
 
 on post-fs
     # once everything is setup, no need to modify /
