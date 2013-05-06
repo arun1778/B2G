@@ -31,6 +31,15 @@ BUILD_RIL_TYPE := RPC
 # Screen size is "normal", density is "mdpi"
 PRODUCT_AAPT_CONFIG := normal mdpi
 
+ifeq ($(BUILD_MODE),release)
+LOCAL_KERNEL := device/imc/xmm6321_svb/vmlinux-release
+else
+LOCAL_KERNEL := device/imc/xmm6321_svb/vmlinux-debug
+endif
+
+PRODUCT_COPY_FILES += \
+        $(LOCAL_KERNEL):kernel
+
 PRODUCT_PACKAGES += \
     gralloc.$(TARGET_BOARD_PLATFORM) \
     audio.primary.$(TARGET_BOARD_PLATFORM) \
