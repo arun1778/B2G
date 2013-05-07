@@ -54,6 +54,12 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/vkp.kl
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/xgold-keypad.kl
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/vkp.kl:system/usr/keychars/vkp.kcm
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/vkp.kl:system/usr/keychars/xgold-keypad.kcm
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
