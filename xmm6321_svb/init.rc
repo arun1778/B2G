@@ -73,7 +73,9 @@ loglevel 3
 
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell 0700 shell shell
-    mkdir /storage 0050 root sdcard_r
+    mkdir /storage 0775 system system
+    mkdir /storage/sdcard0 0775 system system
+    mkdir /storage/sdcard1 0775 system system
 
     # Directory for putting things only root should see.
     mkdir /mnt/secure 0700 root root
@@ -267,15 +269,11 @@ on post-fs-data
     mkdir /data/storage 0555 root root
     mkdir /data/storage/emulated 0555 root root
 
-    export EXTERNAL_STORAGE /data/storage/emulated/legacy
-    export EMULATED_STORAGE_SOURCE /data/mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /data/storage/emulated
+    export EXTERNAL_STORAGE /storage/sdcard1
 
     # Support legacy paths
-    symlink /data/storage/emulated/legacy /sdcard
-    symlink /data/storage/emulated/legacy /mnt/sdcard
-    symlink /data/storage/emulated/legacy /storage/sdcard0
-    symlink /data/mnt/shell/emulated/0 /storage/emulated/legacy
+    symlink /storage/sdcard1 /sdcard
+    symlink /storage/sdcard1 /mnt/sdcard
 
     # If there is no fs-post-data action in the init.<device>.rc file, you
     # must uncomment this line, otherwise encrypted filesystems

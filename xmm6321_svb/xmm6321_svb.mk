@@ -53,6 +53,9 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/init.rc:root/init.rc
 
 PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/vold.fstab:root/etc/vold.fstab
+
+PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/vkp.kl
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/xgold-keypad.kl
@@ -70,4 +73,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # default is nosdcard, S/W button enabled in resource
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
-PRODUCT_CHARACTERISTICS := nosdcard
+# PRODUCT_CHARACTERISTICS := nosdcard
