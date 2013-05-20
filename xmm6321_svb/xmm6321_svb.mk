@@ -49,6 +49,10 @@ PRODUCT_PACKAGES += \
     tinycap \
     hwcomposer.default
 
+# IWLWIFI
+PRODUCT_COPY_FILES += \
+       $(call find-copy-subdir-files,*.ko,$(IWLWIFI_OUT),system/lib/modules/)
+
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/init.rc:root/init.rc
 

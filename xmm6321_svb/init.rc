@@ -229,6 +229,10 @@ on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/local 0751 root root
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/system 0771 system system
+    mkdir /data/system/wpa_supplicant 0771 wifi wifi
+
 
     # For security reasons, /data/local/tmp should always be empty.
     # Do not place files or directories in /data/local/tmp
@@ -280,6 +284,18 @@ on post-fs-data
     # won't work.
     # Set indication (checked by vold) that we have finished this action
     #setprop vold.post_fs_data_done 1
+
+# load wifi drivers
+    insmod /system/lib/modules/compat/compat.ko
+    insmod /system/lib/modules/net/wireless/cfg80211.ko
+    insmod /system/lib/modules/net/mac80211/mac80211.ko
+    # lets not load the iwlwifi modules for now, this may fail the system to boot
+    # in addtion we may like to do this in wifi hal (wifi.c)
+    # insmod /system/lib/modules/drivers/net/wireless/iwlwifi/iwlwifi.ko
+    # insmod /system/lib/modules/drivers/net/wireless/iwlwifi/mvm/iwlmvm.ko
+
+    # set driver wifi driver property so hal will know that it is loaded
+    setprop wlan.driver.status "ok"
 
 on boot
 # basic network init
@@ -459,6 +475,11 @@ service vold /system/bin/vold
     class core
     socket vold stream 0660 root mount
     ioprio be 2
+
+service wpa_supplicant /system/bin/wpa_supplicant -c/data/misc/wifi/wpa_supplicant.conf -d
+    class main
+    disabled
+    oneshot
 
 service netd /system/bin/netd
     class main
