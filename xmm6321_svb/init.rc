@@ -18,8 +18,7 @@
 # Apr 10 2013: remove chmod of vbpipe4-5
 # May 06 2013: support GPT partition
 
-import /init.usb.rc
-import /init.${ro.hardware}.rc
+import /init.xmm6321.usb.rc
 import /init.trace.rc
 
 on early-init

@@ -58,6 +58,9 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/init.rc:root/init.rc
 
 PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/init.xmm6321.usb.rc:root/init.xmm6321.usb.rc
+
+PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/vold.fstab:root/etc/vold.fstab
 
 PRODUCT_COPY_FILES += \
