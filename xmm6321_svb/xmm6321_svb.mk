@@ -51,7 +51,8 @@ PRODUCT_PACKAGES += \
 
 # IWLWIFI
 PRODUCT_COPY_FILES += \
-       $(call find-copy-subdir-files,*.ko,$(IWLWIFI_OUT),system/lib/modules/)
+       $(call find-copy-subdir-files,*.ko,$(IWLWIFI_OUT),system/lib/modules/) \
+       $(TOPDIR)hardware/imc/wlan/iwl-firmware/iwlwifi-7999-6.ucode:system/etc/firmware/iwlwifi-7999-6.ucode
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/init.rc:root/init.rc
