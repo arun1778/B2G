@@ -146,6 +146,9 @@ loglevel 3
     chmod 666 /dev/vbpipe1
     chmod 666 /dev/vbpipe3
 
+# ARM Mali GPU:
+    chmod 666 /dev/mali
+    chown system.graphics /dev/mali
 
 on fs
 # mount mtd partitions
