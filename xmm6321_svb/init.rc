@@ -156,10 +156,10 @@ loglevel 3
 on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
-    mount  ext4 /dev/block/mmcblk0p8 /system
-    mount  ext4 /dev/block/mmcblk0p8 /system ro remount
-    mount  ext4 /dev/block/mmcblk0p10 /data nosuid nodev data=journal
-    mount  ext4 /dev/block/mmcblk0p9 /cache nosuid nodev
+    mount  ext4 /dev/block/mmcblk0p9 /system
+    mount  ext4 /dev/block/mmcblk0p9 /system ro remount
+    mount  ext4 /dev/block/mmcblk0p11 /data nosuid nodev data=journal
+    mount  ext4 /dev/block/mmcblk0p10 /cache nosuid nodev
 
 on post-fs
     # once everything is setup, no need to modify /
