@@ -47,7 +47,10 @@ PRODUCT_PACKAGES += \
     tinyplay \
     tinymix \
     tinycap \
-    hwcomposer.default
+    hwcomposer.default \
+    bdt \
+    bt_vendor_test \
+    bt_vendor.conf
 
 # IWLWIFI
 PRODUCT_COPY_FILES += \
