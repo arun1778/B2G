@@ -50,12 +50,13 @@ PRODUCT_PACKAGES += \
     tinycap \
     bdt \
     bt_vendor_test \
-    bt_vendor.conf
+    bt_vendor.conf \
+    iwlwifi-7999-6.ucode \
+    hwcomposer.default
 
 # IWLWIFI
 PRODUCT_COPY_FILES += \
-       $(call find-copy-subdir-files,*.ko,$(IWLWIFI_OUT),system/lib/modules/) \
-       $(TOPDIR)hardware/imc/wlan/iwl-firmware/iwlwifi-7999-6.ucode:system/etc/firmware/iwlwifi-7999-6.ucode
+       $(call find-copy-subdir-files,*.ko,$(IWLWIFI_OUT),system/lib/modules/)
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/init.rc:root/init.rc

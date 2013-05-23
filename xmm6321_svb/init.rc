@@ -55,6 +55,7 @@ loglevel 3
 # Backward compatibility
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
+    symlink /system/lib /lib
 
 # Right now vendor lives on the same filesystem as system,
 # but someday that may change.
