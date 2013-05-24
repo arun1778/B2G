@@ -80,10 +80,8 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
 
 # The egl.cfg will enable the GPU HW rendering
-ifneq ($(wildcard hardware/arm/mali/driver/egl.cfg),)
 PRODUCT_COPY_FILES += \
-	hardware/arm/mali/driver/egl.cfg:system/lib/egl/egl.cfg
-endif
+	hardware/intel/gpu/arm/mali/egl.cfg:system/lib/egl/egl.cfg
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapstartsize=5m \
