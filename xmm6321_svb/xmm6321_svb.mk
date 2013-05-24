@@ -42,12 +42,12 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     gralloc.$(TARGET_BOARD_PLATFORM) \
+    hwcomposer.$(TARGET_BOARD_PLATFORM) \
     audio.primary.$(TARGET_BOARD_PLATFORM) \
     libauddriver \
     tinyplay \
     tinymix \
     tinycap \
-    hwcomposer.default \
     bdt \
     bt_vendor_test \
     bt_vendor.conf
