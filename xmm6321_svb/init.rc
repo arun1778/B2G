@@ -162,6 +162,7 @@ on fs
     mount  ext4 /dev/block/mmcblk0p9 /system ro remount
     mount  ext4 /dev/block/mmcblk0p11 /data nosuid nodev data=journal
     mount  ext4 /dev/block/mmcblk0p10 /cache nosuid nodev
+    #mount  ext4 /dev/block/mmcblk0p12 /data/fuse nosuid nodev
 
 on post-fs
     # once everything is setup, no need to modify /
@@ -241,6 +242,7 @@ on post-fs-data
     mkdir /data/system 0771 system system
     mkdir /data/system/wpa_supplicant 0771 wifi wifi
 
+    mkdir /data/fuse 0771 system system
 
     # For security reasons, /data/local/tmp should always be empty.
     # Do not place files or directories in /data/local/tmp
@@ -281,11 +283,14 @@ on post-fs-data
     mkdir /data/storage 0555 root root
     mkdir /data/storage/emulated 0555 root root
 
-    export EXTERNAL_STORAGE /storage/sdcard1
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
+    export EMULATED_STORAGE_SOURCE /data/mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /data/storage/emulated
 
     # Support legacy paths
-    symlink /storage/sdcard1 /sdcard
-    symlink /storage/sdcard1 /mnt/sdcard
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
 
     # If there is no fs-post-data action in the init.<device>.rc file, you
     # must uncomment this line, otherwise encrypted filesystems
@@ -484,6 +489,15 @@ service vold /system/bin/vold
     socket vold stream 0660 root mount
     ioprio be 2
 
+# create filesystems if necessary
+# disabled for now as it causes long delay
+service setup_fs /system/bin/setup_fs mmcblk0p11
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
 service wpa_supplicant /system/bin/wpa_supplicant -c/data/misc/wifi/wpa_supplicant.conf -d
     class main
     disabled
@@ -584,3 +598,6 @@ service mdnsd /system/bin/mdnsd
     socket mdnsd stream 0660 mdnsr inet
     disabled
     oneshot
+
+service sdcard /system/bin/sdcard /data/fuse /storage/sdcard0 1000 1000
+    class main

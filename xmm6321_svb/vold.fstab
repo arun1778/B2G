@@ -15,4 +15,5 @@
 # May 16 2013: Added external SD card support
 
 # Mounts the first usable partition of the specified device
+# dev_mount sdcard0 /storage/sdcard0 11 /devices/platform/sdhci-xgold-1/mmc_host/mmc0/mmc0:0001/block/mmcblk0 nonremovable,encryptable
 dev_mount sdcard1 /storage/sdcard1 auto /devices/platform/sdhci-xgold-2/mmc_host/mmc1/mmc1:aaaa

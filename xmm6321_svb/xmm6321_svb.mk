@@ -54,6 +54,11 @@ PRODUCT_PACKAGES += \
     iwlwifi-7999-6.ucode \
     hwcomposer.default
 
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    e2fsck \
+    setup_fs
+
 # IWLWIFI
 PRODUCT_COPY_FILES += \
        $(call find-copy-subdir-files,*.ko,$(IWLWIFI_OUT),system/lib/modules/)
