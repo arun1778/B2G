@@ -17,6 +17,7 @@
 # Feb 25 2013: turn on backlight
 # Apr 10 2013: remove chmod of vbpipe4-5
 # May 06 2013: support GPT partition
+# May 27 2013: add fstab
 
 import /init.xmm6321.usb.rc
 import /init.trace.rc
@@ -158,11 +159,12 @@ loglevel 3
 on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
-    mount  ext4 /dev/block/mmcblk0p9 /system
-    mount  ext4 /dev/block/mmcblk0p9 /system ro remount
-    mount  ext4 /dev/block/mmcblk0p11 /data nosuid nodev data=journal
-    mount  ext4 /dev/block/mmcblk0p10 /cache nosuid nodev
+    #####mount  ext4 /dev/block/mmcblk0p9 /system
+    #####mount  ext4 /dev/block/mmcblk0p9 /system ro remount
+    #####mount  ext4 /dev/block/mmcblk0p11 /data nosuid nodev data=journal
+    #####mount  ext4 /dev/block/mmcblk0p10 /cache nosuid nodev
     #mount  ext4 /dev/block/mmcblk0p12 /data/fuse nosuid nodev
+    mount_all ./fstab.xmm6321_svb
 
 on post-fs
     # once everything is setup, no need to modify /

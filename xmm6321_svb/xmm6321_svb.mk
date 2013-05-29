@@ -16,6 +16,7 @@
 # Jan 17 2013: Modify gralloc package file name using TARGET_BOARD_PLATFORM.
 # Apr 03 2013: Create local copy overlay folder, and provide APN list.
 # Apr 26 2013: Workspace contains both AOSP RIL & RPC RIL, if BUILD_RIL_TYPE set to RPC then AOSP RIL will not be built
+# May 27 2013: Move SVB board specific config from xmm6321_svb.mk to a new file device.mk
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -23,75 +24,13 @@ TARGET_BOARD_PLATFORM := xmm6321
 
 PRODUCT_NAME := xmm6321_svb
 PRODUCT_DEVICE := xmm6321_svb
-PRODUCT_BRAND := IMC
-PRODUCT_MODEL := XMM6321 SVB
+PRODUCT_BRAND := Android
+PRODUCT_MODEL := Full AOSP on XMM6321
+PRODUCT_MANUFACTURER := IMC
+#PRODUCT_RESTRICT_VENDOR_FILES := true
+
 #RIL type RPC or AT based
 BUILD_RIL_TYPE := RPC
 
-# Screen size is "normal", density is "mdpi"
-PRODUCT_AAPT_CONFIG := normal mdpi
-
-ifeq ($(BUILD_MODE),release)
-LOCAL_KERNEL := device/imc/xmm6321_svb/vmlinux-release
-else
-LOCAL_KERNEL := device/imc/xmm6321_svb/vmlinux-debug
-endif
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_KERNEL):kernel
-
-PRODUCT_PACKAGES += \
-    gralloc.$(TARGET_BOARD_PLATFORM) \
-    hwcomposer.$(TARGET_BOARD_PLATFORM) \
-    audio.primary.$(TARGET_BOARD_PLATFORM) \
-    libauddriver \
-    tinyplay \
-    tinymix \
-    tinycap \
-    bdt \
-    bt_vendor_test \
-    bt_vendor.conf \
-    iwlwifi-7999-6.ucode \
-    hwcomposer.default
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    e2fsck \
-    setup_fs
-
-# IWLWIFI
-PRODUCT_COPY_FILES += \
-       $(call find-copy-subdir-files,*.ko,$(IWLWIFI_OUT),system/lib/modules/)
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/init.rc:root/init.rc
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/init.xmm6321.usb.rc:root/init.xmm6321.usb.rc
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/vold.fstab:root/etc/vold.fstab
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/vkp.kl
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/xgold-keypad.kl
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/vkp.kl:system/usr/keychars/vkp.kcm
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/vkp.kl:system/usr/keychars/xgold-keypad.kcm
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
-
-# The egl.cfg will enable the GPU HW rendering
-PRODUCT_COPY_FILES += \
-	hardware/intel/gpu/arm/mali/egl.cfg:system/lib/egl/egl.cfg
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=5m \
-    dalvik.vm.heapsize=32m
-
-# default is nosdcard, S/W button enabled in resource
-DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
-# PRODUCT_CHARACTERISTICS := nosdcard
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/imc/xmm6321_svb/device.mk)
