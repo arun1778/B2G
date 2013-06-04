@@ -71,6 +71,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/fstab.xmm6321_svb:root/fstab.xmm6321_svb
 
+#Copy FMR LKM to system/lib
+PRODUCT_COPY_FILES += \
+       $(LOCAL_PATH)/fmr/fmdrv_xgold-mod.ko:system/lib/modules/fmr/fmdrv_xgold-mod.ko
+
+
 # Key Character Map and Key Layout
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/vkp.kl:system/usr/keylayout/vkp.kl

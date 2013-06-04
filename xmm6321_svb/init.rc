@@ -311,6 +311,8 @@ on post-fs-data
 
     # set driver wifi driver property so hal will know that it is loaded
     setprop wlan.driver.status "ok"
+# load fmr lkm
+	insmod /system/lib/modules/fmr/fmdrv_xgold-mod.ko
 
 on boot
 # basic network init

@@ -34,3 +34,4 @@ BUILD_RIL_TYPE := RPC
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/imc/xmm6321_svb/device.mk)
+
