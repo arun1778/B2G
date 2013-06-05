@@ -16,6 +16,7 @@
 #
 #----------------------------------------------------------------------------
 # Jan 10 2013: Add copyright
+# Jun 05 2013: To use OPENGL renderer
 #
 # Product-specific compile-time definitions.
 #
@@ -40,6 +41,7 @@ TARGET_BOARD_PLATFORM := xmm6321
 
 TARGET_PROVIDES_INIT_RC := true
 
+USE_OPENGL_RENDERER := true
 #BOARD_KERNEL_CMDLINE := mem=770M@0x83C00000
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x3088000 --ramdisk_offset 0x3B00000 --pagesize 4096

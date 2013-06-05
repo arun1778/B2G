@@ -14,9 +14,11 @@
 # limitations under the License.
 #
 # May 27, 2013: This file includes all definitions that apply to XMM6321 SVB devices
+# Jun 05, 2013: Configuration of OpenGL and Screen size
 
 # Screen size is "normal", density is "mdpi"
-PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 ifeq ($(BUILD_MODE),release)
 LOCAL_KERNEL := device/imc/xmm6321_svb/vmlinux-release
@@ -78,6 +80,9 @@ PRODUCT_COPY_FILES += \
 # The egl.cfg will enable the GPU HW rendering
 PRODUCT_COPY_FILES += \
 	hardware/intel/gpu/arm/mali/egl.cfg:system/lib/egl/egl.cfg
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.opengles.version=131072
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
