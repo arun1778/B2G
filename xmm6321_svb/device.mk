@@ -43,6 +43,13 @@ PRODUCT_PACKAGES += \
     iwlwifi-7999-6.ucode \
     hwcomposer.default
 
+#ARM Mali GPU
+PRODUCT_PACKAGES += \
+    libMali \
+    libGLESv2_mali \
+    libEGL_mali \
+    libGLESv1_CM_mali
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     e2fsck \
