@@ -103,7 +103,7 @@ on property:sys.usb.config=accessory,audio_source,adb
 # ===============================================================================
 #
 # Used Synonyms (keywords for activation) together with applicable USB Class (if appropriate)
-# ---------------------------------------
+# -------------------------------------------------------------------------------------------
 #
 # adb
 # mass_storage      (USB) Mass Storage
@@ -119,6 +119,10 @@ on property:sys.usb.config=accessory,audio_source,adb
 # 0x08EC .. 0x08F6 were devised from the XMM6181/XMM2231 projects
 #
 # 0x0920 .. 0x0930 were added for the XMM6321 project
+#
+# Note that the usage of "acm" is special since it has to support varying numbers
+# of CDC-ACM channels, and so the incoming string is expected to have a trailing
+# tag to show this: this is not copied into the function list.
 
 # 0x8087:0x08EC : Mass Storage
 # ----------------------------
@@ -134,11 +138,11 @@ on property:sys.usb.config=mass_storage
 # 0x8087:0x08ED : 1xCDC plus Mass Storage
 # ---------------------------------------
 
-on property:sys.usb.config=acm,mass_storage
+on property:sys.usb.config=acm1,mass_storage
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08ED
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm,mass_storage
     write /sys/class/android_usb/f_acm/instances 1
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
@@ -146,11 +150,11 @@ on property:sys.usb.config=acm,mass_storage
 # 0x8087:0x08EE : 7xCDC (With no Selective Suspend)
 # -------------------------------------------------
 
-on property:sys.usb.config=acm
+on property:sys.usb.config=acm7
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08EE
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm
     write /sys/class/android_usb/f_acm/instances 7
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
@@ -161,11 +165,21 @@ on property:sys.usb.config=acm
 # This should only be used during device bringup
 # and as a fallback if the USB manager fails to set a standard configuration
 
+# on property:sys.usb.config=adb
+#     write /sys/class/android_usb/android0/enable 0
+#     write /sys/class/android_usb/android0/idVendor 8087
+#     write /sys/class/android_usb/android0/idProduct 08EF
+#     write /sys/class/android_usb/android0/functions ${sys.usb.config}
+#     write /sys/class/android_usb/android0/enable 1
+#     start adbd
+#     setprop sys.usb.state ${sys.usb.config}
+
 on property:sys.usb.config=adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
-    write /sys/class/android_usb/android0/idProduct 08EF
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/idProduct 08F4
+    write /sys/class/android_usb/android0/functions adb,acm
+    write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
     setprop sys.usb.state ${sys.usb.config}
@@ -185,11 +199,11 @@ on property:sys.usb.config=adb,mass_storage
 # 0x8087:0x08F1 : ADB plus 1xCDC
 # ------------------------------
 
-on property:sys.usb.config=adb,acm
+on property:sys.usb.config=adb,acm1
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08F1
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm
     write /sys/class/android_usb/f_acm/instances 1
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -198,11 +212,11 @@ on property:sys.usb.config=adb,acm
 # 0x8087:0x08F2 : ADB plus 1xCDC plus Mass Storage
 # ------------------------------------------------
 
-on property:sys.usb.config=adb,acm,mass_storage
+on property:sys.usb.config=adb,acm1,mass_storage
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08F2
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,mass_storage
     write /sys/class/android_usb/f_acm/instances 1
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -211,11 +225,11 @@ on property:sys.usb.config=adb,acm,mass_storage
 # 0x8087:0x08F3 : ADB plus 6xCDC plus Mass Storage
 # ------------------------------------------------
 
-on property:sys.usb.config=adb,acm,mass_storage
+on property:sys.usb.config=adb,acm6,mass_storage
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08F3
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,mass_storage
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -224,11 +238,11 @@ on property:sys.usb.config=adb,acm,mass_storage
 # 0x8087:0x08F4 : ADB plus 6xCDC
 # ------------------------------
 
-on property:sys.usb.config=adb,acm
+on property:sys.usb.config=adb,acm6
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08F4
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -237,11 +251,11 @@ on property:sys.usb.config=adb,acm
 # 0x8087:0x08F5 : 6xCDC plus Mass Storage
 # ---------------------------------------
 
-on property:sys.usb.config=acm,mass_storage
+on property:sys.usb.config=acm6,mass_storage
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08F5
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm,mass_storage
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
@@ -249,11 +263,11 @@ on property:sys.usb.config=acm,mass_storage
 # 0x8087:0x08F6 : 2xCDC
 # ---------------------
 
-on property:sys.usb.config=acm
+on property:sys.usb.config=acm2
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 08F6
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm
     write /sys/class/android_usb/f_acm/instances 2
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
@@ -283,11 +297,11 @@ on property:sys.usb.config=ptp
 # 0x8087:0x0922 : 1xCDC plus MTP
 # ------------------------------
 
-on property:sys.usb.config=acm,mtp
+on property:sys.usb.config=acm1,mtp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 0922
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm,mtp
     write /sys/class/android_usb/f_acm/instances 1
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
@@ -295,11 +309,11 @@ on property:sys.usb.config=acm,mtp
 # 0x8087:0x0923 : 1xCDC plus PTP
 # ------------------------------
 
-on property:sys.usb.config=acm,ptp
+on property:sys.usb.config=acm1,ptp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 0923
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm,ptp
     write /sys/class/android_usb/f_acm/instances 1
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
@@ -331,11 +345,11 @@ on property:sys.usb.config=adb,ptp
 # 0x8087:0x0926 : ADB plus 1xCDC plus MTP
 # ---------------------------------------
 
-on property:sys.usb.config=adb,acm,mtp
+on property:sys.usb.config=adb,acm1,mtp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 0926
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,mtp
     write /sys/class/android_usb/f_acm/instances 1
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -344,11 +358,11 @@ on property:sys.usb.config=adb,acm,mtp
 # 0x8087:0x0927 : ADB plus 1xCDC plus PTP
 # ---------------------------------------
 
-on property:sys.usb.config=adb,acm,ptp
+on property:sys.usb.config=adb,acm1,ptp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 0927
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,ptp
     write /sys/class/android_usb/f_acm/instances 1
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -357,11 +371,11 @@ on property:sys.usb.config=adb,acm,ptp
 # 0x8087:0x0928 : ADB plus 6xCDC plus MTP
 # ---------------------------------------
 
-on property:sys.usb.config=adb,acm,mtp
+on property:sys.usb.config=adb,acm6,mtp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 0928
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,mtp
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -370,11 +384,11 @@ on property:sys.usb.config=adb,acm,mtp
 # 0x8087:0x0929 : ADB plus 6xCDC plus PTP
 # ---------------------------------------
 
-on property:sys.usb.config=adb,acm,ptp
+on property:sys.usb.config=adb,acm6,ptp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 0929
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,ptp
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -383,11 +397,11 @@ on property:sys.usb.config=adb,acm,ptp
 # 0x8087:0x092A : 6xCDC plus MTP
 # ------------------------------
 
-on property:sys.usb.config=acm,mtp
+on property:sys.usb.config=acm6,mtp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 092A
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm,mtp
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -396,11 +410,11 @@ on property:sys.usb.config=acm,mtp
 # 0x8087:0x092B : 6xCDC plus PTP
 # ------------------------------
 
-on property:sys.usb.config=acm,ptp
+on property:sys.usb.config=acm6,ptp
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 092B
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm,ptp
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -409,11 +423,11 @@ on property:sys.usb.config=acm,ptp
 # 0x8087:0x092C : ADB plus 6xCDC plus Audio (output)
 # --------------------------------------------------
 
-on property:sys.usb.config=adb,acm,audio_source
+on property:sys.usb.config=adb,acm6,audio_source
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 092C
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,audio_source
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -422,11 +436,11 @@ on property:sys.usb.config=adb,acm,audio_source
 # 0x8087:0x092D : ADB plus 6xCDC plus USB Tethering (ECM)
 # -------------------------------------------------------
 
-on property:sys.usb.config=adb,acm,rndis
+on property:sys.usb.config=adb,acm6,rndis
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 092D
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions adb,acm,rndis
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     start adbd
@@ -458,11 +472,11 @@ on property:sys.usb.config=adb,rndis
 # 0x8087:0x0930: 6xCDC plus USB Tethering (ECM)
 # ---------------------------------------------
 
-on property:sys.usb.config=acm,rndis
+on property:sys.usb.config=acm6,rndis
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 8087
     write /sys/class/android_usb/android0/idProduct 0930
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/functions acm,rndis
     write /sys/class/android_usb/f_acm/instances 6
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
