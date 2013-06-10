@@ -18,6 +18,7 @@
 # Apr 10 2013: remove chmod of vbpipe4-5
 # May 06 2013: support GPT partition
 # May 27 2013: add fstab
+# Jun 10 2013: RPC multi-client changes
 
 import /init.xmm6321.usb.rc
 import /init.trace.rc
@@ -515,6 +516,11 @@ service netd /system/bin/netd
 
 service debuggerd /system/bin/debuggerd
     class main
+
+service rpc-daemon /system/bin/rpc-daemon
+    class main
+    user root
+    group radio cache inet misc audio log
 
 service ril-daemon /system/bin/rild
     class main
