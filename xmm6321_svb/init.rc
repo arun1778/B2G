@@ -317,6 +317,11 @@ on post-fs-data
 	insmod /system/lib/modules/fmr/fmdrv_xgold-mod.ko
 
 on boot
+
+# permissions to bluetooth
+    chown bluetooth bluetooth /dev/ttyBT0
+    chmod 0666 /dev/ttyBT0
+
 # basic network init
     ifup lo
     hostname localhost
