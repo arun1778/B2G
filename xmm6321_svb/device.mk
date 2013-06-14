@@ -40,6 +40,8 @@ PRODUCT_PACKAGES += \
     bdt \
     bt_vendor_test \
     bt_vendor.conf \
+    a00.pbn \
+    bddata \
     iwlwifi-7999-6.ucode \
     hwcomposer.default
 
