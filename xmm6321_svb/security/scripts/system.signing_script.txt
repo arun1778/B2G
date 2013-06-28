@@ -1,0 +1,23 @@
+LOG
+Section DSP_SW
+SignFormat 1
+HashFunction 1
+Key ./keys/Mprk1024dev.key 
+SignSecPack
+
+Section CODE
+SignFormat 1
+HashFunction 1
+Key ./keys/Mprk1024dev.key
+UseBaseFromLoadMapIndex 0
+GenHash 0x40400 0x0 sys_code_area_hash.bin
+ImportBinary 0x40200 sys_code_area_hash.bin
+GenSign 0x40200 0x200 0x40000 
+SignSecPack
+
+Section CUST
+SignFormat 1
+Key ./keys/Mprk1024dev.key 
+SignSecPack
+
+END

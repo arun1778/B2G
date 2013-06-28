@@ -1,0 +1,10 @@
+  
+  
+  
+LOG
+Section BOOT_CORE_EBL
+SignFormat 1
+HashFunction 1
+Key ./keys/Mprk1024dev.key 
+GenRegionSign 0x80000400 0x80000000
+END 

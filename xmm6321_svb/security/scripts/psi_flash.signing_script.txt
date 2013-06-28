@@ -1,0 +1,23 @@
+  
+  
+  
+LOG
+Section BOOT_CORE_SLB
+SignFormat 2
+HashFunction 1
+Key ./keys/Gprk1024dev.key 
+UseAddress 0x00080000
+PsiSign 0x00080000   0x13F00   0x93F00
+SignFormat 1
+Key ./keys/Mprk1024dev.key 
+SignSecPack
+section BOOT_CORE_PSI
+SignFormat 2
+HashFunction 1
+Key ./keys/Gprk1024dev.key 
+UseAddress 0x00080000
+PsiSign 0x00080000   0x13F00   0x93F00
+SignFormat 1
+Key ./keys/Mprk1024dev.key 
+SignSecPack
+END
