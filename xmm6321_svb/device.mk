@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
     a00.pbn \
     bddata \
     iwlwifi-7999-6.ucode \
+    iwlwifi-7999.nvm \
     hwcomposer.default
 
 #ARM Mali GPU
