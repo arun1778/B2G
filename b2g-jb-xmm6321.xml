@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="aosp"
+           fetch="https://android.googlesource.com/" />
+  <remote name="b2g"
+          fetch="git://github.com/mozilla-b2g/" />
+  <remote  name="linaro"
+           fetch="git://android.git.linaro.org/" />
+  <remote name="mozilla"
+	  fetch="git://github.com/mozilla/" />
+  <remote name="vlad"
+	  fetch="git://github.com/vvuk/" />
+
+  <remote name="imc-gerrit" fetch="ssh://imc-gerrit" review="musxgits01.imu.intel.com:8080"/>
+  
+  <default revision="refs/tags/android-4.2.1_r1"
+           remote="aosp"
+           sync-j="4" />
+
+  <!-- JB and B2G specific things. -->
+
+  <!-- build stuff can be cleaned up, but probably can't avoid changes -->
+  <project path="build" name="b2g-n7-build" remote="vlad" revision="b2g-jb">
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project>
+
+  <!-- we have to comment out requestPriority() until we get a handler service in place -->
+  <project path="frameworks/av" name="b2g-n7-frameworks-av" remote="vlad" revision="b2g-jb" />
+
+  <!-- new repo that just has per-device blob extractors, so we can keep pulling the stock device dirs from aosp -->
+  <project path="b2g-blobs" name="b2g-blobs" remote="vlad" revision="b2g-jb" />
+
+  <!-- we have to add /system/b2g to the default filesystem config; the filesystem is mounted ro only,
+       so we can't modify permissions at boot (unless we wanted to remount and modify; that's an alternate) -->
+  <project path="system/core" name="b2g-n7-system-core" remote="vlad" revision="b2g-jb" />
+
+  <!-- until we merge stuff into the mainline -->
+  <project path="gecko" name="mozilla-central" remote="vlad" revision="b2g-jb" />
+  <project path="rilproxy" name="rilproxy" remote="vlad" revision="b2g-jb" />
+
+  <!-- Stock b2g things -->
+  <project path="dalvik" name="fake-libdvm" remote="b2g" revision="master" />
+  <project path="gaia" name="gaia" remote="b2g" revision="master" />
+  <project path="gonk-misc" name="gonk-misc" remote="b2g" revision="master" />
+
+  <!-- Stock Android things -->
+  <project path="abi/cpp" name="platform/abi/cpp" />
+  <project path="bionic" name="platform/bionic" />
+  <project path="bootable/recovery" name="platform/bootable/recovery" />
+  <project path="device/common" name="android/device/common" remote="imc-gerrit" revision="intel/jb/int" />
+  <project path="device/sample" name="device/sample" />
+  <project path="external/aac" name="platform/external/aac" />
+  <project path="external/bluetooth/bluedroid" name="platform/external/bluetooth/bluedroid" revision="refs/tags/android-4.2.1_r1_"/>
+  <project path="external/bsdiff" name="platform/external/bsdiff" />
+  <project path="external/bzip2" name="platform/external/bzip2" />
+  <project path="external/compiler-rt" name="platform/external/compiler-rt" />
+  <project path="external/dbus" name="platform/external/dbus" />
+  <project path="external/dhcpcd" name="platform/external/dhcpcd" />
+  <project path="external/dnsmasq" name="platform/external/dnsmasq" />
+  <project path="external/dropbear" name="platform/external/dropbear" />
+  <project path="external/e2fsprogs" name="platform/external/e2fsprogs" />
+  <project path="external/elfutils" name="platform/external/elfutils" />
+  <project path="external/expat" name="platform/external/expat" />
+  <project path="external/fdlibm" name="platform/external/fdlibm" />
+  <project path="external/flac" name="platform/external/flac" />
+  <project path="external/freetype" name="platform/external/freetype" />
+  <project path="external/gcc-demangle" name="platform/external/gcc-demangle" />
+  <project path="external/genext2fs" name="platform/external/genext2fs" />
+  <project path="external/giflib" name="platform/external/giflib" />
+  <project path="external/gtest" name="platform/external/gtest" />
+  <project path="external/harfbuzz" name="platform/external/harfbuzz" />
+  <project path="external/icu4c" name="platform/external/icu4c" />
+  <project path="external/iproute2" name="platform/external/iproute2" />
+  <project path="external/ipsec-tools" name="platform/external/ipsec-tools" />
+  <project path="external/iptables" name="platform/external/iptables" />
+  <project path="external/jack" name="platform/external/jack" />
+  <project path="external/jhead" name="platform/external/jhead" />
+  <project path="external/jpeg" name="platform/external/jpeg" />
+  <project path="external/libgsm" name="platform/external/libgsm" />
+  <project path="external/liblzf" name="platform/external/liblzf" />
+  <project path="external/libnfc-nxp" name="platform/external/libnfc-nxp" />
+  <project path="external/libnl-headers" name="platform/external/libnl-headers" />
+  <project path="external/libogg" name="platform/external/libogg" />
+  <project path="external/libphonenumber" name="platform/external/libphonenumber" />
+  <project path="external/libpng" name="platform/external/libpng" />
+  <project path="external/libvpx" name="platform/external/libvpx" />
+  <project path="external/mdnsresponder" name="platform/external/mdnsresponder" />
+  <project path="external/mksh" name="platform/external/mksh" />
+  <project path="external/netcat" name="platform/external/netcat" />
+  <project path="external/netperf" name="platform/external/netperf" />
+  <project path="external/opensans" name="platform_external_opensans" remote="b2g" revision="master" />
+  <project path="external/openssl" name="platform/external/openssl" />
+  <project path="external/ping" name="platform/external/ping" />
+  <project path="external/ping6" name="platform/external/ping6" />
+  <project path="external/protobuf" name="platform/external/protobuf" />
+  <project path="external/safe-iop" name="platform/external/safe-iop" />
+  <project path="external/skia" name="platform/external/skia" />
+  <project path="external/sonivox" name="platform/external/sonivox" />
+  <project path="external/speex" name="platform/external/speex" />
+  <project path="external/sqlite" name="platform/external/sqlite" />
+  <project path="external/stlport" name="platform/external/stlport" />
+  <project path="external/strace" name="platform/external/strace" />
+  <project path="external/tagsoup" name="platform/external/tagsoup" />
+  <project path="external/tinyalsa" name="android/platform/external/tinyalsa" remote="imc-gerrit" revision="intel/jb/int" />
+  <project path="external/tinyxml" name="platform/external/tinyxml" />
+  <project path="external/tinyxml2" name="platform/external/tinyxml2" />
+  <project path="external/tremolo" name="platform/external/tremolo" />
+  <project path="external/webp" name="platform/external/webp" />
+  <project path="external/webrtc" name="platform/external/webrtc" />
+  <project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" />
+  <project path="external/zlib" name="platform/external/zlib" />
+  <project path="external/yaffs2" name="platform/external/yaffs2" />
+  <project path="frameworks/av" name="platform/frameworks/av" />
+  <project path="frameworks/base" name="platform/frameworks/base" />
+  <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" />
+  <project path="frameworks/support" name="platform/frameworks/support" />
+  <project path="frameworks/native" name="platform/frameworks/native" />
+  <project path="libcore" name="platform/libcore" />
+  <project path="libnativehelper" name="platform/libnativehelper" />
+  <project path="ndk" name="platform/ndk" />
+
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.6" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6" groups="linux,arm" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6" groups="linux,arm" />
+  <project path="prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" name="platform/prebuilts/gcc/linux-x86/host/i686-linux-glibc2.7-4.6" groups="linux" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.7-4.6" groups="linux" />
+  <project path="external/clang" name="platform/external/clang" />
+  <project path="prebuilts/clang/darwin-x86/3.1" name="platform/prebuilts/clang/darwin-x86/3.1" groups="darwin" />
+  <project path="prebuilts/clang/darwin-x86/3.2" name="platform/prebuilts/clang/darwin-x86/3.2" groups="darwin" />
+  <project path="prebuilts/clang/linux-x86/3.1" name="platform/prebuilts/clang/linux-x86/3.1" groups="linux" />
+  <project path="prebuilts/clang/linux-x86/3.2" name="platform/prebuilts/clang/linux-x86/3.2" groups="linux" />
+  <project path="prebuilts/misc" name="platform/prebuilts/misc" />
+  <project path="prebuilts/ndk" name="platform/prebuilts/ndk" />
+  <project path="prebuilts/qemu-kernel" name="platform/prebuilts/qemu-kernel" />
+  <project path="prebuilts/sdk" name="platform/prebuilts/sdk" />
+  <project path="prebuilts/tools" name="platform/prebuilts/tools" />
+  <project path="system/bluetooth" name="platform/system/bluetooth" />
+  <project path="system/extras" name="platform/system/extras" />
+  <project path="system/media" name="platform/system/media" />
+  <project path="system/netd" name="platform/system/netd" />
+  <project path="system/security" name="platform/system/security" />
+  <project path="system/vold" name="platform/system/vold" />
+  <project path="external/llvm" name="platform/external/llvm" />
+  <project path="frameworks/compile/llvm-ndk-cc" name="platform/frameworks/compile/llvm-ndk-cc" />
+ 
+<!-- Intel repositories -->
+
+  <project path="hardware/libhardware" name="platform/hardware/libhardware" />
+  <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" />
+  <!-- project path="hardware/libhardware" name="android/platform/hardware/libhardware" revision="intel/jb/int" remote="imc-gerrit" /-->
+  <!-- project path="hardware/libhardware_legacy" name="android/platform/hardware/libhardware_legacy" revision="intel/jb/int" remote="imc-gerrit" /-->
+
+  <project path="device/generic/armv7-a-neon" name="android/device/generic/armv7-a-neon" revision="intel/jb/int" remote="imc-gerrit" />
+  <project path="device/generic/armv7-a" name="android/device/generic/armv7-a" revision="intel/jb/int" remote="imc-gerrit" />
+  <project path="device/generic/common" name="android/device/generic/common" revision="intel/jb/int" remote="imc-gerrit" />
+
+  <!-- project path="hardware/ril" name="platform/hardware/ril" /-->
+  <project path="hardware/ril" name="android/platform/hardware/ril" revision="intel/jb/int" remote="imc-gerrit" />
+  <project path="hardware/intel" name="android/platform/hardware/vlx" revision="imc/xmm63X1/development" remote="imc-gerrit" /> 
+  
+<!--   Data from MEX --> 
+  <project name="xmm2231/mex" path="../MEX" revision ="imc/xmm63X1/development" remote="imc-gerrit" /> 
+ 
+ <!--   VLX Projects  --> 
+  <project path="../VLX/vlm" name="VLX/vlm" revision="imc/imc-vlx-5.1/development" remote="imc-gerrit"/>
+  <project path="../VLX/vlm-al" name="VLX/vlm-al" revision="imc/imc-vlx-5.1/development" remote="imc-gerrit"/>
+
+ <!--   XMM2231 specific projects and Linux-2.6
+
+  --> 
+  <project name="xmm2231/images" path="../images" revision="imc/xmm63X1/development" remote="imc-gerrit" /> 
+  <project name="xmm2231/linux/linux-2.6-vdrivers" path="../linux/vdrivers" revision="imc/imc-vdrivers-1.0/development" remote="imc-gerrit" /> 
+  <project name="xmm2231/linux/linux-2.6-virt" path="../linux/kernel" revision="imc/android-imc-3.0/development" remote="imc-gerrit" /> 
+  <project name="xmm2231/scripts" path="../scripts" revision="imc/xmm63X1/development" remote="imc-gerrit" /> 
+  <project name="android/device/imc" path="device/imc" revision="imc/xmm63X1/development" remote="imc-gerrit" /> 
+
+ <!-- New RIL and RPC repositories -->
+
+ <project path="hardware/imc/ril" name="android/hardware/imc/ril" revision="intel/jb/int" remote="imc-gerrit" />
+ <project path="hardware/imc/rpc" name="android/hardware/imc/rpc" revision="imc/xmm63X1/development" remote="imc-gerrit" />
+
+ <!-- IPCSERVICE repository -->
+
+ <project path="hardware/imc/ipcservice" name="android/hardware/intel/ipcservice" revision="intel/jb/int" remote="imc-gerrit" />
+
+ <!-- WLAN repositories -->
+ <project path="hardware/imc/wlan/hostap_wcs" name="android/platform/hardware/intel/wlan/hostap_wcs" revision="intel/jb/int" remote="imc-gerrit" />
+ <project path="hardware/imc/wlan/iwl-firmware" name="android/platform/hardware/intel/wlan/iwl-firmware" revision="intel/jb/int" remote="imc-gerrit" />
+ <project path="hardware/imc/wlan/iwlwifi" name="android/platform/hardware/intel/wlan/iwlwifi" revision="intel/jb/int" remote="imc-gerrit" />
+
+ <!-- GNSS repositories -->
+  <project path="hardware/imc/gnss" name="gnss/lbs" revision="intel/jb/int" remote="imc-gerrit" />
+
+  <project path="hardware/imc/bluetooth/ibt_firmware_config_data" name="android/hardware/imc/bluetooth/ibt_firmware_config_data" revision="intel/jb/int" remote="imc-gerrit" />
+
+  <project path="hardware/imc/wlan/xVT_service" name="iwlwifi/xVT_service" revision="intel/jb/int" remote="imc-gerrit" />
+
+
+  <project path="hardware/imc/fm" name="android/hardware/imc/fm" revision="intel/jb/int" remote="imc-gerrit" />
+
+  <project path="vendor/tools/Bluetooth/phonetool_bt_usc" name="android/vendor/tools/Bluetooth/phonetool_bt_usc" revision="intel/xmm6321/int" remote="imc-gerrit" />
+  <project path="hardware/imc/pt_bt_daemon" name="android/hardware/imc/ipcservice/pt_bt_daemon" revision="intel/xmm6321/int" remote="imc-gerrit" />
+  <project path="vendor/tools/Bluetooth/xvt_bt_usc" name="android/vendor/tools/Bluetooth/xvt_bt_usc" revision="intel/jb/int" remote="imc-gerrit" />
+
+</manifest>

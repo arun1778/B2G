@@ -82,6 +82,13 @@ case "$1" in
 	repo_sync $1
 	;;
 
+"xmm6321_svb")
+	echo DEVICE=xmm6321_svb >> .tmp-config &&
+	echo VENDOR=imc >> .tmp-config &&
+	echo LUNCH=xmm6321_svb-userdebug >> .tmp-config &&
+	repo_sync $1
+	;;
+
 "otoro"|"unagi")
 	echo DEVICE=$1 >> .tmp-config &&
 	repo_sync $1
@@ -108,6 +115,7 @@ case "$1" in
 	echo Usage: $0 \(device name\)
 	echo
 	echo Valid devices to configure are:
+	echo - xmm6321_svb
 	echo - galaxy-s2
 	echo - galaxy-nexus
 	echo - nexus-s
