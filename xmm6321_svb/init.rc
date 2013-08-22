@@ -1,3 +1,4 @@
+import /init.b2g.rc
 # Copyright (C) 2013 Intel Mobile Communications GmbH
 # Copyright (C) 2012 The Android Open Source Project
 #
@@ -168,6 +169,15 @@ on fs
     #####mount  ext4 /dev/block/mmcblk0p10 /cache nosuid nodev
     #mount  ext4 /dev/block/mmcblk0p12 /data/fuse nosuid nodev
     mount_all ./fstab.xmm6321_svb
+
+#b2g
+    mount yaffs2 mtd@system /system
+    chmod 0755 /system/b2g/b2g
+    chmod 0755 /system/b2g/plugin-container
+    chmod 0755 /system/b2g/updater
+    mount yaffs2 mtd@system /system ro remount
+    mount yaffs2 mtd@userdata /data nosuid nodev
+    mount yaffs2 mtd@cache /cache nosuid nodev
 
 on post-fs
     # once everything is setup, no need to modify /

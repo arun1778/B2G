@@ -18,7 +18,9 @@
 # Apr 26 2013: Workspace contains both AOSP RIL & RPC RIL, if BUILD_RIL_TYPE set to RPC then AOSP RIL will not be built
 # May 27 2013: Move SVB board specific config from xmm6321_svb.mk to a new file device.mk
 
-$(call inherit-product, build/target/product/full.mk)
+#$(call inherit-product, build/target/product/full.mk)
+#aks
+$(call inherit-product, build/target/product/full_base.mk)
 
 TARGET_BOARD_PLATFORM := xmm6321
 
