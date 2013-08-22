@@ -2,9 +2,10 @@
 
 . load-config.sh
 
-VARIANT=${VARIANT:-eng}
-LUNCH=${LUNCH:-full_${DEVICE}-${VARIANT}}
-
+#VARIANT=${VARIANT:-eng}
+#LUNCH=${LUNCH:-full_${DEVICE}-${VARIANT}}
+VARIANT=${VARIANT:-userdebug}
+LUNCH=${LUNCH:-${DEVICE}-${VARIANT}}
 export USE_CCACHE=yes &&
 export GECKO_PATH &&
 export GAIA_PATH &&
