@@ -81,14 +81,8 @@ else
 		;;
 	*)
 		echo Run \|./flash.sh\| to flash all partitions of your device
-#aks img -> fls
-~/workspace/B2Gxmm6321/B2G/MEX/dwdtools/HexToFls/Linux/HexToFls_E2_Linux --prg ~/workspace/B2Gxmm6321/B2G/MEX/mhw_drv_src/memory_management/mem/scatterfile/XMM6321_REV_1.0/modem_sw.prg --output ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/boot.fls  --tag BOOT_IMG --psi ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/psi_ram.flb --ebl ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/ebl.flb ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/boot.img
-
-~/workspace/B2Gxmm6321/B2G/MEX/dwdtools/HexToFls/Linux/HexToFls_E2_Linux --prg ~/workspace/B2Gxmm6321/B2G/MEX/mhw_drv_src/memory_management/mem/scatterfile/XMM6321_REV_1.0/modem_sw.prg --output ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/system.fls  --tag SYSTEM --psi ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/psi_ram.flb --ebl ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/ebl.flb ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/system.img
-
-~/workspace/B2Gxmm6321/B2G/MEX/dwdtools/HexToFls/Linux/HexToFls_E2_Linux --prg ~/workspace/B2Gxmm6321/B2G/MEX/mhw_drv_src/memory_management/mem/scatterfile/XMM6321_REV_1.0/modem_sw.prg --output ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/userdata.fls  --tag USERDATA --psi ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/psi_ram.flb --ebl ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/ebl.flb ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/userdata.img
-
-~/workspace/B2Gxmm6321/B2G/MEX/dwdtools/HexToFls/Linux/HexToFls_E2_Linux --prg ~/workspace/B2Gxmm6321/B2G/MEX/mhw_drv_src/memory_management/mem/scatterfile/XMM6321_REV_1.0/modem_sw.prg --output ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/cache.fls  --tag CACHE --psi ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/psi_ram.flb --ebl ~/workspace/B2Gxmm6321/B2G/build/debug/android/target/product/xmm6321_svb/ebl.flb ~/workspace/b2g-jb-xmm6321/b2g-xmm6321/out/target/product/xmm6321_svb/cache.img
+#aks creating img to fls
+. img2fls.sh		
 		;;
 	esac
 	exit 0
