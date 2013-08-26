@@ -92,6 +92,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
 
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/audio_policy.conf:system/etc/audio_policy.conf
+
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/media_codecs.xml:system/etc/media_codecs.xml
+
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml
+
 # The egl.cfg will enable the GPU HW rendering
 PRODUCT_COPY_FILES += \
 	hardware/intel/gpu/arm/mali/egl.cfg:system/lib/egl/egl.cfg
